@@ -36,6 +36,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       }),
     ],
   ],
+  stylesheets: [
+    '/css/custom.css',
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -111,4 +114,5 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         darkTheme: darkCodeTheme,
       },
     }),
+    
 });
