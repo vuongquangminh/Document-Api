@@ -1,17 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 14
 ---
 
-# OA Send Text
+# List Message
 
-## Api send zns lên zalo
+## Api List Message lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-text
+`POST` $BASE_URL/api/vendor/v1/zalo/list-messages
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/oa-send-text`
+- **URL**: `/api/vendor/v1/zalo/list-messages`
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
@@ -22,9 +22,8 @@ sidebar_position: 7
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `filter`: (Mô tả dữ liệu filter)
+  - `paging`: (Mô tả dữ liệu paging)
 
 - **Cấu trúc request**
 
@@ -32,27 +31,40 @@ sidebar_position: 7
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
-
+| filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ID của template </li><li>**campaign_id** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**delivery_status** với kiểu dữ liệu là `unknow` đại diện cho tên của template </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_type** với kiểu dữ liệu là `unknow` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**status** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**tracking_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li></ul>      |
+| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/list-messages' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-  "message": {
-    "text": "string"
+  "filter": {
+    "charged": true,
+    "campaign_id": "string",
+    "date_from": "string",
+    "date_to": "string",
+    "delivery_status": "UNKNOWN",
+    "is_charged": true,
+    "journey_id": "string",
+    "msg_id": "string",
+    "msg_type": "UNKNOWN",
+    "oa_id": "string",
+    "phone": "string",
+    "status": "Z",
+    "template_id": 0,
+    "tracking_id": "string"
   },
-  "oa_id": "string",
-  "recipient": {
-    "user_id": "string"
+  "paging": {
+    "after": "string",
+    "before": "string",
+    "limit": 0,
+    "sort": "string"
   }
 }'
 ```

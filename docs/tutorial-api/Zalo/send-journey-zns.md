@@ -33,14 +33,14 @@ sidebar_position: 4
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken   | string                | true            |    Accecss tokentoken           |
-| journey_id `body`         | string                | false            |     typw của nónó          |
-| oa_id `body`         | string                | false            |      123123123123123123         |
-| phone `body`        | string          | false            |    Accecss tokentoken           |
-| template_data `body`        | object          | false            |    Accecss tokentoken           |
-| template_id `body`        | number          | false            |    Accecss tokentoken           |
-| tracking_id `body`        | string          | false            |    Accecss tokentoken           |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+| journey_id `body`         | string                | false            |     Mô tả về journey_id          |
+| oa_id `body`         | string                | false            |      Mô tả về oa_id         |
+| phone `body`        | string          | false            |    Mô tả về phone           |
+| template_data `body`        | object          | false            |    Mô tả về template_data           |
+| template_id `body`        | number          | false            |    Mô tả về template_id           |
+| tracking_id `body`        | string          | false            |    Mô tả về tracking_id           |
 
 - **Ví dụ Request**
 
@@ -57,7 +57,7 @@ curl -X 'POST' \
   "oa_id": "string",
   "phone": "string",
   "template_data": {},
-  "template_id": number,
+  "template_id": 0,
   "tracking_id": "string"
 }'
 ```

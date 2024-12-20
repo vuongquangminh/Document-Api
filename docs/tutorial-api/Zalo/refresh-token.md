@@ -28,9 +28,9 @@ sidebar_position: 6
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken   | string                | true            |    Accecss tokentoken           |
-| oa_id `body`         | string                | false            |     typw của nónó          |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
 
 - **Ví dụ Request**
 

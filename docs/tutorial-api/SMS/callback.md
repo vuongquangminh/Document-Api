@@ -1,17 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 2
 ---
 
-# OA Send Text
+# Callback
 
-## Api send zns lên zalo
+## Api Callback lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-text
+`POST` $BASE_URL/api/vendor/v1/sms/callback
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/oa-send-text`
+- **URL**: `/api/vendor/v1/sms/callback`
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
@@ -22,9 +22,13 @@ sidebar_position: 7
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `msisdn`: (Mô tả dữ liệu msisdn)
+  - `requestId`: (Mô tả dữ liệu requestId)
+  - `sendTime`: (Mô tả dữ liệu sendTime)
+  - `responseTimeTelco`: (Mô tả dữ liệu responseTimeTelco)
+  - `status`: (Mô tả dữ liệu status)
+  - `referentId`: (Mô tả dữ liệu referentId)
+  - `retryCount`: (Mô tả dữ liệu retryCount)
 
 - **Cấu trúc request**
 
@@ -32,28 +36,32 @@ sidebar_position: 7
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
+| msisdn `body`         | string                | true            |     Mô tả trường msisdn      |
+| requestId `body`         | string                | true            |     Mô tả trường requestId      |
+| sendTime `body`         | string                | true            |     Mô tả trường sendTime      |
+| responseTimeTelco `body`         | 	string                | false            |     Mô tả trường responseTimeTelco      |
+| status `body`         | number                | false            |     Mô tả trường status      |
+| referentId `body`         | string                | true            |     Mô tả trường referentId      |
+| retryCount `body`         | number                | true            |     Mô tả trường retryCount      |
 
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
+  'https://cpaas.interits.com/api/vendor/v1/sms/callback' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-  "message": {
-    "text": "string"
-  },
-  "oa_id": "string",
-  "recipient": {
-    "user_id": "string"
-  }
+  "msisdn": "string",
+  "requestId": "string",
+  "sendTime": "string",
+  "responseTimeTelco": "string",
+  "status": 0,
+  "referentId": "string",
+  "retryCount": 0
 }'
 ```
 
@@ -66,7 +74,15 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 ```json
 {
   "code": 0,
-  "data": {},
+  "data": {
+    "msisdn": "string",
+    "requestId": "string",
+    "sendTime": "string",
+    "responseTimeTelco": "string",
+    "status": 0,
+    "referentId": "string",
+    "retryCount": 0
+  },
   "message": "string",
   "errors": {
     "additionalProp1": {},

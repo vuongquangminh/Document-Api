@@ -1,17 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 21
 ---
 
-# OA Send Text
+# Create Template
 
-## Api send zns lên zalo
+## Api Create Template lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-text
+`POST` $BASE_URL/api/vendor/v1/zalo/create-template
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/oa-send-text`
+- **URL**: `/api/vendor/v1/zalo/create-template`
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
@@ -22,9 +22,9 @@ sidebar_position: 7
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
   - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `template_id`: (Mô tả dữ liệu template_id)
+  - `type`: (Mô tả dữ liệu type)
 
 - **Cấu trúc request**
 
@@ -32,28 +32,24 @@ sidebar_position: 7
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
+| oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
+| template_id `body`         | number                | false            |     Mô tả trường template_id      |
+| type `body`         | unknow                | false            |     Mô tả trường type      |
 
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/create-template' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-  "message": {
-    "text": "string"
-  },
   "oa_id": "string",
-  "recipient": {
-    "user_id": "string"
-  }
+  "template_id": 0,
+  "type": "UNKNOWN"
 }'
 ```
 

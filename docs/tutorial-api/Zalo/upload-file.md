@@ -21,10 +21,10 @@ sidebar_position: 1
 - **Parameters**:
   - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
   - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
-  - `type`: (Mô tả ngắn về file nếu có)
-  - `oaId`: (Mô tả ngắn về file nếu có)
+  - `type`: (Mô tả ngắn về type nếu có)
+  - `oaId`: (Mô tả ngắn về oaId nếu có)
 - **Body**:
-  - `file`: (Dữ liệu file cần upload)
+  - `file`: (Mô tả dữ liệu file truyền vào)
 
 
 
@@ -32,11 +32,11 @@ sidebar_position: 1
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY      | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken  | string                | true            |    Accecss tokentoken           |
-| type `parameter`         | string                | true            |     typw của nónó          |
-| oaId `parameter`         | string                | true            |      123123123123123123         |
-| file `body`        | string          | false            |    Accecss tokentoken           |
+| API-KEY `header` `header`      | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header` `header` | string                | true            |    Mô tả về accsessToken           |
+| type `parameter`         | string                | true            |     Mô tả về type         |
+| oaId `parameter`         | string                | true            |      Mô tả về oaId        |
+| file `body`        | string          | false            |    Mô tả về file          |
 
 - **Ví dụ Request**
 
@@ -49,8 +49,8 @@ curl -X 'POST' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-    "file": "@/path/to/your/file.txt"
-  }'
+  "file": "string"
+}'
 ```
 
 ### Thông tin Response

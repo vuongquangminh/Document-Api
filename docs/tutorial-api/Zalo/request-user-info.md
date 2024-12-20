@@ -22,17 +22,17 @@ sidebar_position: 5
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `zl_user_id`: (Mô tả dữ liệu phone)
+  - `oa_id`: (Mô tả về oa_id)
+  - `zl_user_id`: (Mô tả về zl_user_id)
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken   | string                | true            |    Accecss tokentoken           |
-| oa_id `body`         | string                | false            |     typw của nónó          |
-| zl_user_id `body`         | string                | false            |      123123123123123123         |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
+| zl_user_id `body`         | string                | false            |      Mô tả về zl_user_id         |
 
 - **Ví dụ Request**
 

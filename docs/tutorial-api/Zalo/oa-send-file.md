@@ -22,17 +22,17 @@ sidebar_position: 10
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Tin nhắn)
-  - `oa_id`: (Mô tả dữ liệu phone)
-  - `recipient`: (Gửi đến người nhận)
+  - `message`: (Mô tả dữ liệu message)
+  - `oa_id`: (Mô tả dữ liệu oa_id)
+  - `recipient`: (Mô tả dữ liệu recipient)
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken   | string                | true            |    Accecss tokentoken           |
-| oa_id `body`         | string                | false            |     typw của nónó          |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
 | message `body`         | object                | false            |     <ul><li>**token** với kiểu dữ liệu là string đại diện cho file được gửi đi </li></ul>      |
 | recipient `body`        | object          | false            |    <ul><li>**user_id** với kiểu dữ liệu là string đại diện cho người nhận tin nhắn </li></ul>           |
 

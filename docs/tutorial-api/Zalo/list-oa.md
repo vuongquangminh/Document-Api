@@ -1,17 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 13
 ---
 
-# OA Send Text
+# List OA
 
-## Api send zns lên zalo
+## Api List OA lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-text
+`POST` $BASE_URL/api/vendor/v1/zalo/list-oa
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/oa-send-text`
+- **URL**: `/api/vendor/v1/zalo/list-oa`
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
@@ -22,9 +22,8 @@ sidebar_position: 7
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `filter`: (Mô tả dữ liệu filter)
+  - `paging`: (Mô tả dữ liệu paging)
 
 - **Cấu trúc request**
 
@@ -32,27 +31,31 @@ sidebar_position: 7
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
-
+| filter `body`         | object                | false            |     <ul><li>**app_id** với kiểu dữ liệu là `number` đại diện cho ID của template </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**name** với kiểu dữ liệu là `string` đại diện cho tên của template </li></ul>      |
+| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/list-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-  "message": {
-    "text": "string"
+  "filter": {
+    "app_id": "string",
+    "date_from": "string",
+    "date_to": "string",
+    "name": "string",
+    "oa_id": "string"
   },
-  "oa_id": "string",
-  "recipient": {
-    "user_id": "string"
+  "paging": {
+    "after": "string",
+    "before": "string",
+    "limit": 0,
+    "sort": "string"
   }
 }'
 ```

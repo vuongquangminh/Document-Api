@@ -22,17 +22,18 @@ sidebar_position: 11
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `msg_id`: (Tin nhắn)
-  - `oa_id`: (Mô tả dữ liệu phone)
+  - `msg_id`: (Mô tả dữ liệu msg_id)
+  - `oa_id`: (Mô tả dữ liệu oa_id)
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken   | string                | true            |    Accecss tokentoken           |
-| msg_id `body`         | object                | false            |     ID của message      |
-| oa_id `body`         | string                | false            |     ID của OA          |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+| msg_id `body`         | object                | false            |     Mô tả về msg_id      |
+| oa_id `body`         | string                | false            |     Mô tả về oa_id         |
+
 - **Ví dụ Request**
 
 ```bash

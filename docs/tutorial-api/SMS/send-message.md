@@ -1,17 +1,17 @@
 ---
-sidebar_position: 7
+sidebar_position: 1
 ---
 
-# OA Send Text
+# Send Message
 
-## Api send zns lên zalo
+## Api Send Message lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-text
+`POST` $BASE_URL/api/vendor/v1/sms/send-message
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/oa-send-text`
+- **URL**: `/api/vendor/v1/sms/send-message`
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
@@ -22,9 +22,14 @@ sidebar_position: 7
   - `API-KEY`: (Dữ liệu file cần upload)
   - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `destinations`: (Mô tả dữ liệu destinations)
+  - `from`: (Mô tả dữ liệu from)
+  - `text`: (Mô tả dữ liệu text)
+  - `scheduled`: (Mô tả dữ liệu scheduled)
+  - `requestId`: (Mô tả dữ liệu requestId)
+  - `useUnicode`: (Mô tả dữ liệu useUnicode)
+  - `type`: (Mô tả dữ liệu type)
+  - `ext`: (Mô tả dữ liệu ext)
 
 - **Cấu trúc request**
 
@@ -32,28 +37,36 @@ sidebar_position: 7
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
+| destinations `body`         | array                | true            |     Mô tả trường destinations      |
+| from `body`         | string                | true            |     Mô tả trường from      |
+| text `body`         | string                | true            |     Mô tả trường text      |
+| scheduled `body`         | 	string                | false            |     Mô tả trường scheduled      |
+| requestId `body`         | string                | false            |     Mô tả trường requestId      |
+| useUnicode `body`         | string                | true            |     Mô tả trường useUnicode      |
+| type `body`         | string                | true            |     Mô tả trường type      |
+| ext `body`         | object                | false            |     Mô tả trường ext      |
 
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
+  'https://cpaas.interits.com/api/vendor/v1/sms/send-message' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-  "message": {
-    "text": "string"
-  },
-  "oa_id": "string",
-  "recipient": {
-    "user_id": "string"
-  }
+  "destinations": [
+    "string"
+  ],
+  "from": "string",
+  "text": "string",
+  "scheduled": "2024-12-20T03:33:44.757Z",
+  "requestId": "string",
+  "useUnicode": 0,
+  "type": 0,
+  "ext": {}
 }'
 ```
 
