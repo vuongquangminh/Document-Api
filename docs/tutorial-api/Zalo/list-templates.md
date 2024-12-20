@@ -1,56 +1,52 @@
 ---
-sidebar_position: 1
+sidebar_position: 12
 ---
 
-# Upload File
+# List Templates
 
-## Api upload file lên zalo
+## Api List Template lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/upload-file
+`POST` $BASE_URL/api/vendor/v1/zalo/list-templates
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/upload-file`
+- **URL**: `/api/vendor/v1/zalo/list-templates`
 - **Headers**: 
   - `accept: */*`
-  - `Content-Type: multipart/form-data`
+  - `Content-Type: application/json`
   - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
-  - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
-  - `type`: (Mô tả ngắn về file nếu có)
-  - `oaId`: (Mô tả ngắn về file nếu có)
+  - `API-KEY`: (Dữ liệu file cần upload)
+  - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `file`: (Dữ liệu file cần upload)
-
-
+  - `msg_id`: (Tin nhắn)
+  - `oa_id`: (Mô tả dữ liệu phone)
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY      | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken  | string                | true            |    Accecss tokentoken           |
-| type `parameter`         | string                | true            |     typw của nónó          |
-| oaId `parameter`         | string                | true            |      123123123123123123         |
-| file `body`        | string          | false            |    Accecss tokentoken           |
-
+| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
+| accessToken   | string                | true            |    Accecss tokentoken           |
+| filter `body`         | object                | false            |     <ul><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number` đại diện cho ID của template </li><li>**template_name** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**type** với kiểu dữ liệu là `unknow` đại diện cho loại template  </li></ul>      |
+| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/upload-file?type=UpLoadFile&oaId=Kmj394nbf82n' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/list-templates' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-    "file": "@/path/to/your/file.txt"
-  }'
+  "msg_id": "string",
+  "oa_id": "string"
+}'
 ```
 
 ### Thông tin Response

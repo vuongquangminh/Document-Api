@@ -1,30 +1,29 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# Upload File
+# Update Shop OA
 
-## Api upload file lên zalo
+## Api update shop OA
 
-`POST` $BASE_URL/api/vendor/v1/zalo/upload-file
+`POST` $BASE_URL/api/vendor/v1/zalo/update-shop-oa
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/upload-file`
+- **URL**: `/api/vendor/v1/zalo/update-shop-oa`
 - **Headers**: 
   - `accept: */*`
-  - `Content-Type: multipart/form-data`
+  - `Content-Type: application/json`
   - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
+  - `API-KEY`: (API-KE dùng để xác thực và quản lý quyền truy cập vào API của họ)
   - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
-  - `type`: (Mô tả ngắn về file nếu có)
-  - `oaId`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `file`: (Dữ liệu file cần upload)
+  - `oa_id`: (Mô tả dữ liệu file oa_id)
+  - `webhook_url`: (Mô tả dữ liệu file webhook_url)
 
 
 
@@ -34,23 +33,23 @@ sidebar_position: 1
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY      | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
 | accessToken  | string                | true            |    Accecss tokentoken           |
-| type `parameter`         | string                | true            |     typw của nónó          |
-| oaId `parameter`         | string                | true            |      123123123123123123         |
-| file `body`        | string          | false            |    Accecss tokentoken           |
+| oa_id `body`         | string                | false           |     typw của nónó          |
+| webhook_url `body`         | string                | false             |      123123123123123123         |
 
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/upload-file?type=UpLoadFile&oaId=Kmj394nbf82n' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/update-shop-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-    "file": "@/path/to/your/file.txt"
-  }'
+  "oa_id": "string",
+  "webhook_url": "string"
+}'
 ```
 
 ### Thông tin Response

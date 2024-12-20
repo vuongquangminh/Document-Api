@@ -1,56 +1,63 @@
 ---
-sidebar_position: 1
+sidebar_position: 9
 ---
 
-# Upload File
+# OA send image
 
-## Api upload file lên zalo
+## Api OA send image lên zalo
 
-`POST` $BASE_URL/api/vendor/v1/zalo/upload-file
+`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-image
 
 ### Thông tin Request
 
 - **Method**: `POST`
-- **URL**: `/api/vendor/v1/zalo/upload-file`
+- **URL**: `/api/vendor/v1/zalo/oa-send-image`
 - **Headers**: 
   - `accept: */*`
-  - `Content-Type: multipart/form-data`
+  - `Content-Type: application/json`
   - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
-  - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
-  - `type`: (Mô tả ngắn về file nếu có)
-  - `oaId`: (Mô tả ngắn về file nếu có)
+  - `API-KEY`: (Dữ liệu file cần upload)
+  - `accessToken`: (Mô tả ngắn về file nếu có)
 - **Body**:
-  - `file`: (Dữ liệu file cần upload)
-
-
+  - `message`: (Tin nhắn)
+  - `oa_id`: (Mô tả dữ liệu phone)
+  - `recipient`: (Gửi đến người nhận)
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY      | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
-| accessToken  | string                | true            |    Accecss tokentoken           |
-| type `parameter`         | string                | true            |     typw của nónó          |
-| oaId `parameter`         | string                | true            |      123123123123123123         |
-| file `body`        | string          | false            |    Accecss tokentoken           |
+| API-KEY       | string                | true            |    Đối với các API sử dụng cho Shop thì API key:<api_key>.Thông tin base_url của Shop         |
+| accessToken   | string                | true            |    Accecss tokentoken           |
+| oa_id `body`         | string                | false            |     typw của nónó          |
+| message `body`         | object                | false            |     <ul><li>**attachment_id** với kiểu dữ liệu là `string` đại diện cho tệp ảnh đính kèm</li><li>**image_url** với kiểu dữ liệu là `string` đại diện cho đường dẫn ảnh</li></ul>      |
+| recipient `body`        | object          | false            |    <ul><li>**user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
+
+
 
 - **Ví dụ Request**
 
 ```bash
 curl -X 'POST' \
-  'https://cpaas.interits.com/api/vendor/v1/zalo/upload-file?type=UpLoadFile&oaId=Kmj394nbf82n' \
+  'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-image' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
   -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
-    "file": "@/path/to/your/file.txt"
-  }'
+  "message": {
+    "attachment_id": "string",
+    "image_url": "string"
+  },
+  "oa_id": "string",
+  "recipient": {
+    "user_id": "string"
+  }
+}'
 ```
 
 ### Thông tin Response
