@@ -19,8 +19,8 @@ sidebar_position: 20
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Dữ liệu file cần upload)
-  - `accessToken`: (Mô tả ngắn về file nếu có)
+  - `API-KEY`: (Mô tả về API-KEY)
+  - `accessToken`: (Mô tả về accessToken)
 
 
 - **Cấu trúc request**

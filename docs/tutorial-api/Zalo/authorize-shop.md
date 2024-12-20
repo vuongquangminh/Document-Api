@@ -18,7 +18,7 @@ sidebar_position: 24
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Dữ liệu file cần upload)
+  - `API-KEY`: (Mô tả về API-KEY)
 - **Body**:
   - `shop_id`: (Mô tả dữ liệu shop_id)
   - `redirect_url`: (Mô tả dữ liệu redirect_url)
