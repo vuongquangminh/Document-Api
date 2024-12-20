@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+custom_edit_url: null
 ---
 
-# Tutorial Intro
+# Hướng dẫn sử dụng 
 
 Let's discover **Docusaurus in less than 5 minutes**.
 

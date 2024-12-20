@@ -5,8 +5,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
   module.exports = {
-    title: "My Site",
-    tagline: "Dinosaurs are cool",
+    title: "Inter.ITS Developer",
+    tagline: "Phần mềm tích hợp API",
     url: "https://your-docusaurus-test-site.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
@@ -41,27 +41,29 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     stylesheets: ["/css/custom.css"],
 
     themeConfig:
+    
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+      
       ({
         navbar: {
-          title: "My Site",
+          title: "Trang chủ",
           logo: {
             alt: "My Site Logo",
-            src: "img/logo.svg",
+            src: "img/logo_its_sq.png",
           },
           items: [
             {
               type: "doc",
               docId: "intro",
               position: "left",
-              label: "Tutorial",
+              label: "Tài liệu API",
             },
-            { to: "/blog", label: "Blog", position: "left" },
-            {
-              href: "https://github.com/facebook/docusaurus",
-              label: "GitHub",
-              position: "right",
-            },
+            // { to: "/blog", label: "Blog", position: "left" },
+            // {
+            //   href: "https://github.com/facebook/docusaurus",
+            //   label: "GitHub",
+            //   position: "right",
+            // },
           ],
         },
         footer: {

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 24
+custom_edit_url: null
 ---
 
 # Authorize Shop
