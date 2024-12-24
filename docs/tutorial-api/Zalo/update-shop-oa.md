@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (API-KE dùng để xác thực và quản lý quyền truy cập vào API của họ)
-  - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu file oa_id)
   - `webhook_url`: (Mô tả dữ liệu file webhook_url)
@@ -33,7 +31,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`      | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`  | string                | true            |    Mô tả về accsessToken           |
 | oa_id `body`         | string                | false           |     Mô tả về oa_id          |
 | webhook_url `body`         | string                | false             |      Mô tả về webhook_url         |
 
@@ -44,7 +41,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/update-shop-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -61,24 +58,67 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "verified": true,
+    "app_id": "string",
+    "avatar": "string",
+    "connection_id": "string",
+    "connection_method": "UNKNOWN",
+    "cover": "string",
+    "created_at": "string",
+    "current_quality": "UNKNOWN",
+    "daily_quota": "number",
+    "daily_quota_promotion": "number",
+    "description": "string",
+    "estimated_next_month_promotion_quota": "number",
+    "expires_at": "string",
+    "is_verified": true,
+    "last_week_quality": "UNKNOWN",
+    "monthly_promotion_quota": "number",
+    "name": "string",
+    "oa_id": "string",
+    "owner_id": "string",
+    "remaining_monthly_promotion_quota": "number",
+    "remaining_quota": "number",
+    "shop_id": "string",
+    "status": "Z",
+    "updated_at": "string",
+    "webhook_url": "string"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| verified     | boolean         |    Mô tả verified   |
+| app_id     | string         |    Mô tả verified   |
+| avatar     | string         |    Mô tả verified   |
+| connection_id     | string         |    Mô tả verified   |
+| connection_method     | UNKNOWN         |    Mô tả verified   |
+| cover     | string         |    Mô tả verified   |
+| created_at     | string         |    Mô tả verified   |
+| current_quality     | number         |    Mô tả verified   |
+| daily_quota_promotion     | number         |    Mô tả verified   |
+| description     | string         |    Mô tả verified   |
+| estimated_next_month_promotion_quota     | number         |    Mô tả verified   |
+| expires_at     | string         |    Mô tả verified   |
+| is_verified     | boolean         |    Mô tả verified   |
+| last_week_quality     | UNKNOWN         |    Mô tả verified   |
+| monthly_promotion_quota     | number         |    Mô tả verified   |
+| name     | string         |    Mô tả verified   |
+| oa_id     | string         |    Mô tả verified   |
+| owner_id     | string         |    Mô tả verified   |
+| remaining_monthly_promotion_quota     | number         |    Mô tả verified   |
+| remaining_quota     | number         |    Mô tả verified   |
+| shop_id     | string         |    Mô tả verified   |
+| status     | Z         |    Mô tả verified   |
+| updated_at     | string         |    Mô tả verified   |
+| webhook_url     | string         |    Mô tả verified   |
 
 ### Bảng Status Response
 

@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: multipart/form-data`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
-  - `accessToken`: (Access token là một chuỗi được sinh ngẫu nhiên giúp xác định người dùng)
   - `type`: (Mô tả ngắn về type nếu có)
   - `oaId`: (Mô tả ngắn về oaId nếu có)
 - **Body**:
@@ -33,8 +31,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header` `header`      | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header` `header` | string                | true            |    Mô tả về accsessToken           |
+| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
 | type `parameter`         | string                | true            |     Mô tả về type         |
 | oaId `parameter`         | string                | true            |      Mô tả về oaId        |
 | file `body`        | string          | false            |    Mô tả về file          |
@@ -46,7 +43,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/upload-file?type=UpLoadFile&oaId=Kmj394nbf82n' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -61,25 +58,8 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
-  },
-  "total_record": 0,
-  "current_page": 0
-}
+{}
 ```
-
-- **Cấu trúc data của response**
-
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

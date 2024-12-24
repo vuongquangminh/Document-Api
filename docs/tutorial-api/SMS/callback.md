@@ -16,12 +16,12 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
+ 
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
+
 - **Body**:
   - `msisdn`: (Mô tả dữ liệu msisdn)
   - `requestId`: (Mô tả dữ liệu requestId)
@@ -36,7 +36,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+
 | msisdn `body`         | string                | true            |     Mô tả trường msisdn      |
 | requestId `body`         | string                | true            |     Mô tả trường requestId      |
 | sendTime `body`         | string                | true            |     Mô tả trường sendTime      |
@@ -52,7 +52,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/sms/callback' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{

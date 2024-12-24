@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
 - **Body**:
   - `msg_id`: (Mô tả dữ liệu msg_id)
   - `oa_id`: (Mô tả dữ liệu oa_id)
@@ -31,7 +29,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | msg_id `body`         | object                | false            |     Mô tả về msg_id      |
 | oa_id `body`         | string                | false            |     Mô tả về oa_id         |
 
@@ -42,7 +39,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/message-detail' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -59,24 +56,83 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "charged": true,
+    "campaign_id": "string",
+    "created_at": "string",
+    "delivery_status": "UNKNOWN",
+    "delivery_time": "string",
+    "error_code": "number",
+    "error_message": "string",
+    "fee_main": "number",
+    "fee_token": "number",
+    "feedback": {},
+    "id": "string",
+    "is_charged": true,
+    "journey_id": "string",
+    "msg_id": "string",
+    "note": "string",
+    "oa_id": "string",
+    "phone": "string",
+    "rate": "number",
+    "sent_time": "string",
+    "shop_id": "string",
+    "status": "Z",
+    "submit_time": "string",
+    "template_data": {},
+    "template_id": "number",
+    "timeout": "number",
+    "tracking_id": "string",
+    "type": "UNKNOWN",
+    "updated_at": "string",
+    "user_id": "string",
+    "zl_user_id": "string",
+    "enable_sms_on_zns_failure": "string",
+    "sms": "string"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| charged     | boolean         |    Mô tả verified   |
+| campaign_id     | string         |    Mô tả verified   |
+| created_at     | string         |    Mô tả verified   |
+| delivery_status     | UNKNOWN         |    Mô tả verified   |
+| delivery_time     | string         |    Mô tả verified   |
+| error_code     | number         |    Mô tả verified   |
+| error_message     | string         |    Mô tả verified   |
+| fee_main     | number         |    Mô tả verified   |
+| fee_token     | number         |    Mô tả verified   |
+| feedback     | object         |    Mô tả verified   |
+| id     | string         |    Mô tả verified   |
+| is_charged     | boolean         |    Mô tả verified   |
+| journey_id     | string         |    Mô tả verified   |
+| msg_id     | string         |    Mô tả verified   |
+| note     | string         |    Mô tả verified   |
+| oa_id     | string         |    Mô tả verified   |
+| phone     | string         |    Mô tả verified   |
+| rate     | number         |    Mô tả verified   |
+| sent_time     | string         |    Mô tả verified   |
+| shop_id     | string         |    Mô tả verified   |
+| status     | Z         |    Mô tả verified   |
+| submit_time     | string         |    Mô tả verified   |
+| template_data     | object         |    Mô tả verified   |
+| template_id     | number         |    Mô tả verified   |
+| timeout     | number         |    Mô tả verified   |
+| tracking_id     | string         |    Mô tả verified   |
+| type     | UNKNOWN         |    Mô tả verified   |
+| user_id     | string         |    Mô tả verified   |
+| zl_user_id     | string         |    Mô tả verified   |
+| enable_sms_on_zns_failure     | string         |    Mô tả verified   |
+| sms     | string         |    Mô tả verified   |
+
+
 
 ### Bảng Status Response
 

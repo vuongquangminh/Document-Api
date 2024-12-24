@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu oa_id)
 
@@ -30,7 +28,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
 
 - **Ví dụ Request**
@@ -40,7 +37,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/get-shop-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -56,24 +52,68 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "verified": true,
+    "app_id": "string",
+    "avatar": "string",
+    "connection_id": "string",
+    "connection_method": "UNKNOWN",
+    "cover": "string",
+    "created_at": "string",
+    "current_quality": "UNKNOWN",
+    "daily_quota": "number",
+    "daily_quota_promotion": "number",
+    "description": "string",
+    "estimated_next_month_promotion_quota": "number",
+    "expires_at": "string",
+    "is_verified": true,
+    "last_week_quality": "UNKNOWN",
+    "monthly_promotion_quota": "number",
+    "name": "string",
+    "oa_id": "string",
+    "onwer_id": "string",
+    "remaining_monthly_promotion_quota": "number",
+    "remaining_quota": "number",
+    "shop_id": "string",
+    "status": "Z",
+    "updated_at": "string",
+    "webhook_url": "string"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key        | Type            | Description       |
+|------------- |-----------------|-------------------|
+| verified         | boolean          |    Mô tả msg_id   |
+| app_id         | string          |    Mô tả msg_id   |
+| avatar         | string          |    Mô tả msg_id   |
+| connection_id         | string          |    Mô tả msg_id   |
+| connection_method         | UNKNOWN          |    Mô tả msg_id   |
+| cover         | string          |    Mô tả msg_id   |
+| created_at         | string          |    Mô tả msg_id   |
+| current_quality         | UNKNOWN          |    Mô tả msg_id   |
+| daily_quota         | number          |    Mô tả msg_id   |
+| daily_quota_promotion         | number          |    Mô tả msg_id   |
+| description         | string          |    Mô tả msg_id   |
+| estimated_next_month_promotion_quota         | number          |    Mô tả msg_id   |
+| expires_at         | string          |    Mô tả msg_id   |
+| is_verified         | boolean          |    Mô tả msg_id   |
+| last_week_quality         | UNKNOWN          |    Mô tả msg_id   |
+| monthly_promotion_quota         | number          |    Mô tả msg_id   |
+| name         | string          |    Mô tả msg_id   |
+| oa_id         | string          |    Mô tả msg_id   |
+| onwer_id         | string          |    Mô tả msg_id   |
+| remaining_monthly_promotion_quota         | number          |    Mô tả msg_id   |
+| remaining_quota         | number          |    Mô tả msg_id   |
+| shop_id         | string          |    Mô tả msg_id   |
+| status         | Z          |    Mô tả msg_id   |
+| updated_at         | string          |    Mô tả msg_id   |
+| webhook_url         | string          |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

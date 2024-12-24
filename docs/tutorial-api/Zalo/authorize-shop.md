@@ -55,24 +55,32 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "auth_token": "string",
+    "auth_url": "string",
+    "code": "string",
+    "expires_in": "number",
+    "meta": {},
+    "msg": "string",
+    "type": "SHOP_KEY"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key        | Type             | Description       |
+|------------- |-----------------|-------------------|
+| auth_token         | string          |    Mô tả msg_id   |
+| auth_url         | string          |    Mô tả msg_id   |
+| code         | string          |    Mô tả msg_id   |
+| expires_in         | string          |    Mô tả msg_id   |
+| meta         | object          |    Mô tả msg_id   |
+| msg         | string          |    Mô tả msg_id   |
+| type         | SHOP_KEY          |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
 - **Body**:
   - `journey_id`: (Mô tả dữ liệu journey_id)
   - `oa_id`: (Mô tả dữ liệu oa_id)
@@ -31,7 +29,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | journey_id `body`         | string                | false            |     Mô tả trường journey_id      |
 | oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
 
@@ -42,7 +39,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/get-journey' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -59,24 +56,42 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "charged": true,
+    "created_at": "string",
+    "error_code": "number",
+    "error_message": "string",
+    "expired_at": "string",
+    "id": "string",
+    "is_charged": true,
+    "journey_id": "string",
+    "journey_token": "string",
+    "phone": "string",
+    "status": "Z",
+    "updated_at": "string"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key        | Type            | Description       |
+|------------- |-----------------|-------------------|
+| charged         | boolean          |    Mô tả msg_id   |
+| created_at         | string          |    Mô tả msg_id   |
+| error_code         | number          |    Mô tả msg_id   |
+| error_message         | string          |    Mô tả msg_id   |
+| expired_at         | string          |    Mô tả msg_id   |
+| id         | string          |    Mô tả msg_id   |
+| is_charged         | boolean          |    Mô tả msg_id   |
+| journey_id         | string          |    Mô tả msg_id   |
+| journey_token         | string          |    Mô tả msg_id   |
+| phone         | string          |    Mô tả msg_id   |
+| status         | Z          |    Mô tả msg_id   |
+| updated_at         | string          |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

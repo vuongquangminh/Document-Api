@@ -16,12 +16,11 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
+
 - **Body**:
   - `filter`: (Mô tả dữ liệu filter)
   - `paging`: (Mô tả dữ liệu paging)
@@ -31,7 +30,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ID của template </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**status** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li></ul>      |
 | page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
@@ -41,7 +39,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/list-journeys' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -72,24 +70,44 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "journeys": [
+      {
+        "charged": true,
+        "created_at": "string",
+        "error_code": "number",
+        "error_message": "string",
+        "expired_at": "string",
+        "id": "string",
+        "is_charged": true,
+        "journey_id": "string",
+        "journey_token": "string",
+        "phone": "string",
+        "status": "Z",
+        "updated_at": "string"
+      }
+    ],
+    "paging": {
+      "after": "string",
+      "before": "string",
+      "limit": "number",
+      "next": "string",
+      "prev": "string",
+      "sort": "string"
+    }
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key        | Type            | Description       |
+|------------- |-----------------|-------------------|
+| journeys         | array          |    <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ngày bắt đầu  </li><li>**created_at** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**error_code** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**error_message** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**expired_at** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**id** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho loại template  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**journey_token** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**status** với kiểu dữ liệu là `Z` đại diện cho loại template  </li><li>**updated_at** với kiểu dữ liệu là `string` đại diện cho loại template  </li></ul>   |
+| paging         | object          |    <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**next** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**prev** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho loại template  </li></ul>      |
 
 ### Bảng Status Response
 

@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu oa_id)
   - `phone`: (Mô tả dữ liệu phone)
@@ -34,7 +32,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | oa_id `body`         | string                | false            |     Mô tả về oa_id          |
 | phone `body`         | string                | false            |      Mô tả về phone         |
 | template_data `body`        | object          | false            |    Mô tả về template_data           |
@@ -48,7 +45,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/send-zns' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -67,25 +64,9 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
-  },
-  "total_record": 0,
-  "current_page": 0
-}
+{}
 ```
 
-- **Cấu trúc data của response**
-
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

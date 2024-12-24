@@ -17,12 +17,12 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
+ 
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
+
 - **Body**:
   - `destinations`: (Mô tả dữ liệu destinations)
   - `from`: (Mô tả dữ liệu from)
@@ -38,7 +38,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
+
 | destinations `body`         | array                | true            |     Mô tả trường destinations      |
 | from `body`         | string                | true            |     Mô tả trường from      |
 | text `body`         | string                | true            |     Mô tả trường text      |
@@ -55,7 +55,7 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/sms/send-message' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
+
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -79,25 +79,9 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
-  },
-  "total_record": 0,
-  "current_page": 0
-}
+{}
 ```
 
-- **Cấu trúc data của response**
-
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
 
 ### Bảng Status Response
 

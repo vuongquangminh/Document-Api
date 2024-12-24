@@ -16,12 +16,10 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `accessToken: {accessToken}`
   - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-  - `accessToken`: (Mô tả về accessToken)
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu oa_id)
   - `template_id`: (Mô tả dữ liệu template_id)
@@ -32,7 +30,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| accessToken `header`   | string                | true            |    Mô tả về accsessToken           |
 | oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
 | template_id `body`         | number                | false            |     Mô tả trường template_id      |
 | type `body`         | unknow                | false            |     Mô tả trường type      |
@@ -44,7 +41,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/create-template' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'accessToken: $accessToken' \
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -62,24 +58,57 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 ```json
 {
-  "code": 0,
-  "data": {},
-  "message": "string",
-  "errors": {
-    "additionalProp1": {},
-    "additionalProp2": {},
-    "additionalProp3": {}
+  "code": "number",
+  "data": {
+    "price": "number",
+    "apply_template_quota": true,
+    "created_at": "string",
+    "preview_url": "string",
+    "template_daily_quota": "number",
+    "template_id": "number",
+    "template_name": "string",
+    "template_params": [
+      {
+        "accept_null": true,
+        "max_length": "number",
+        "min_length": "number",
+        "name": "string",
+        "require": true,
+        "type": "string"
+      }
+    ],
+    "template_quality": "UNKNOWN",
+    "template_remaining_quota": "number",
+    "template_status": "UNKNOWN",
+    "template_tag": "UNKNOWN",
+    "timeout": "number",
+    "type": "UNKNOWN",
+    "updated_at": "string"
   },
-  "total_record": 0,
-  "current_page": 0
+  "message": "string",
+  "referentId": "string"
 }
 ```
 
 - **Cấu trúc data của response**
 
-| Key        | Type            |     Required    | Description       |
-|------------- |-----------------|-----------------|-------------------|
-| file         | string          | True            |    Mô tả msg_id   |
+| Key        | Type            | Description       |
+|-------------|-------------------|-----------------|
+| price         | number         |    Mô tả msg_id   |
+| apply_template_quota         | boolean         |    Mô tả msg_id   |
+| created_at         | boolean         |    Mô tả msg_id   |
+| preview_url         | string         |    Mô tả msg_id   |
+| template_daily_quota         | number         |    Mô tả msg_id   |
+| template_id         | number         |    Mô tả msg_id   |
+| template_name         | string         |    Mô tả msg_id   |
+| template_params         | array         |    Mô tả msg_id   |
+| template_quality         | UNKNOWN         |    Mô tả msg_id   |
+| template_remaining_quota         | number         |    Mô tả msg_id   |
+| template_status         | UNKNOWN         |    Mô tả msg_id   |
+| template_tag         | UNKNOWN         |    Mô tả msg_id   |
+| timeout         | number         |    Mô tả msg_id   |
+| type         | UNKNOWN         |    Mô tả msg_id   |
+| updated_at         | string         |    Mô tả msg_id   |
 
 ### Bảng Status Response
 
