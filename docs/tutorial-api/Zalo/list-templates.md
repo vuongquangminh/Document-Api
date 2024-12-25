@@ -20,7 +20,6 @@ custom_edit_url: null
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-
 - **Body**:
   - `filter`: (Mô tả dữ liệu filter)
   - `paging`: (Mô tả dữ liệu paging)

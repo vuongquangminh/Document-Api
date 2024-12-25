@@ -41,7 +41,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/update-shop-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -96,29 +95,29 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 | Key          | Type            |    Description       |
 |------------- |-----------------|-------------------|
 | verified     | boolean         |    Mô tả verified   |
-| app_id     | string         |    Mô tả verified   |
-| avatar     | string         |    Mô tả verified   |
-| connection_id     | string         |    Mô tả verified   |
-| connection_method     | UNKNOWN         |    Mô tả verified   |
-| cover     | string         |    Mô tả verified   |
-| created_at     | string         |    Mô tả verified   |
-| current_quality     | number         |    Mô tả verified   |
-| daily_quota_promotion     | number         |    Mô tả verified   |
-| description     | string         |    Mô tả verified   |
-| estimated_next_month_promotion_quota     | number         |    Mô tả verified   |
-| expires_at     | string         |    Mô tả verified   |
-| is_verified     | boolean         |    Mô tả verified   |
-| last_week_quality     | UNKNOWN         |    Mô tả verified   |
-| monthly_promotion_quota     | number         |    Mô tả verified   |
-| name     | string         |    Mô tả verified   |
-| oa_id     | string         |    Mô tả verified   |
-| owner_id     | string         |    Mô tả verified   |
-| remaining_monthly_promotion_quota     | number         |    Mô tả verified   |
-| remaining_quota     | number         |    Mô tả verified   |
-| shop_id     | string         |    Mô tả verified   |
-| status     | Z         |    Mô tả verified   |
-| updated_at     | string         |    Mô tả verified   |
-| webhook_url     | string         |    Mô tả verified   |
+| app_id     | string         |    Mô tả app_id   |
+| avatar     | string         |    Mô tả avatar   |
+| connection_id     | string         |    Mô tả connection_id   |
+| connection_method     | UNKNOWN         |    Mô tả connection_method   |
+| cover     | string         |    Mô tả cover   |
+| created_at     | string         |    Mô tả created_at   |
+| current_quality     | number         |    Mô tả current_quality   |
+| daily_quota_promotion     | number         |    Mô tả daily_quota_promotion   |
+| description     | string         |    Mô tả description   |
+| estimated_next_month_promotion_quota     | number         |    Mô tả estimated_next_month_promotion_quota   |
+| expires_at     | string         |    Mô tả expires_at   |
+| is_verified     | boolean         |    Mô tả is_verified   |
+| last_week_quality     | UNKNOWN         |    Mô tả last_week_quality   |
+| monthly_promotion_quota     | number         |    Mô tả monthly_promotion_quota   |
+| name     | string         |    Mô tả name   |
+| oa_id     | string         |    Mô tả oa_id   |
+| owner_id     | string         |    Mô tả owner_id   |
+| remaining_monthly_promotion_quota     | number         |    Mô tả remaining_monthly_promotion_quota   |
+| remaining_quota     | number         |    Mô tả remaining_quota   |
+| shop_id     | string         |    Mô tả shop_id   |
+| status     | Z         |    Mô tả status   |
+| updated_at     | string         |    Mô tả updated_at   |
+| webhook_url     | string         |    Mô tả webhook_url   |
 
 ### Bảng Status Response
 

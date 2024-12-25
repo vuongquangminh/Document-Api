@@ -22,7 +22,6 @@ custom_edit_url: null
   - `API-KEY`: (Mô tả về API-KEY)
 
 
-
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
@@ -66,11 +65,11 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| id         | string          |    Mô tả msg_id   |
-| image_url         | string           |    Mô tả msg_id   |
-| name         | string          |    Mô tả msg_id   |
-| type         | string          |    Mô tả msg_id   |
-| website         | string          |    Mô tả msg_id   |
+| id         | string          |    Mô tả id   |
+| image_url         | string           |    Mô tả image_url   |
+| name         | string          |    Mô tả name   |
+| type         | string          |    Mô tả type   |
+| website         | string          |    Mô tả website   |
 
 ### Bảng Status Response
 

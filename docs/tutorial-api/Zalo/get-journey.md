@@ -39,7 +39,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/get-journey' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -80,18 +79,18 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| charged         | boolean          |    Mô tả msg_id   |
-| created_at         | string          |    Mô tả msg_id   |
-| error_code         | number          |    Mô tả msg_id   |
-| error_message         | string          |    Mô tả msg_id   |
-| expired_at         | string          |    Mô tả msg_id   |
-| id         | string          |    Mô tả msg_id   |
-| is_charged         | boolean          |    Mô tả msg_id   |
-| journey_id         | string          |    Mô tả msg_id   |
-| journey_token         | string          |    Mô tả msg_id   |
-| phone         | string          |    Mô tả msg_id   |
-| status         | Z          |    Mô tả msg_id   |
-| updated_at         | string          |    Mô tả msg_id   |
+| charged         | boolean          |    Mô tả charged   |
+| created_at         | string          |    Mô tả created_at   |
+| error_code         | number          |    Mô tả error_code   |
+| error_message         | string          |    Mô tả error_message   |
+| expired_at         | string          |    Mô tả expired_at   |
+| id         | string          |    Mô tả id   |
+| is_charged         | boolean          |    Mô tả is_charged   |
+| journey_id         | string          |    Mô tả journey_id   |
+| journey_token         | string          |    Mô tả journey_token   |
+| phone         | string          |    Mô tả phone   |
+| status         | Z          |    Mô tả status   |
+| updated_at         | string          |    Mô tả updated_at   |
 
 ### Bảng Status Response
 

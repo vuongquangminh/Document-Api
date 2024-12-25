@@ -20,7 +20,6 @@ custom_edit_url: null
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu oa_id)
 - **Cấu trúc request**
@@ -37,7 +36,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/refresh-token' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -66,7 +64,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type             | Description       |
 |------------- |----------------- |-------------------|
-| url         | string           |    Mô tả msg_id   |
+| url         | string           |    Mô tả url   |
 
 ### Bảng Status Response
 

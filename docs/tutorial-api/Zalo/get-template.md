@@ -20,7 +20,6 @@ custom_edit_url: null
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-
 - **Body**:
   - `oa_id`: (Mô tả dữ liệu oa_id)
   - `template_id`: (Mô tả dữ liệu template_id)
@@ -91,21 +90,21 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| apply_template_quota         | boolean          |    Mô tả msg_id   |
-| created_at         | string          |    Mô tả msg_id   |
-| preview_url         | string          |    Mô tả msg_id   |
-| price         | number          |    Mô tả msg_id   |
-| template_daily_quota         | number          |    Mô tả msg_id   |
-| template_id         | number          |    Mô tả msg_id   |
-| template_name         | string          |    Mô tả msg_id   |
-| template_params         | object          |    Mô tả msg_id   |
-| template_quality         | UNKNOWN          |    Mô tả msg_id   |
-| template_remaining_quota         | number          |    Mô tả msg_id   |
-| template_status         | UNKNOWN          |    Mô tả msg_id   |
-| template_tag         | UNKNOWN          |    Mô tả msg_id   |
-| timeout         | number          |    Mô tả msg_id   |
-| type         | string          |    Mô tả msg_id   |
-| updated_at         | string          |    Mô tả msg_id   |
+| apply_template_quota         | boolean          |    Mô tả apply_template_quota   |
+| created_at         | string          |    Mô tả created_at   |
+| preview_url         | string          |    Mô tả preview_url   |
+| price         | number          |    Mô tả price   |
+| template_daily_quota         | number          |    Mô tả template_daily_quota   |
+| template_id         | number          |    Mô tả template_id   |
+| template_name         | string          |    Mô tả template_name   |
+| template_params         | object          |    Mô tả template_params   |
+| template_quality         | UNKNOWN          |    Mô tả template_quality   |
+| template_remaining_quota         | number          |    Mô tả template_remaining_quota   |
+| template_status         | UNKNOWN          |    Mô tả template_status   |
+| template_tag         | UNKNOWN          |    Mô tả template_tag   |
+| timeout         | number          |    Mô tả timeout   |
+| type         | string          |    Mô tả type   |
+| updated_at         | string          |    Mô tả updated_at   |
 
 ### Bảng Status Response
 

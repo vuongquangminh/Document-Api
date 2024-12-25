@@ -20,7 +20,6 @@ custom_edit_url: null
   - `API-KEY: {API_KEY}`
 - **Parameters**:
   - `API-KEY`: (Mô tả về API-KEY)
-
 - **Body**:
   - `filter`: (Mô tả dữ liệu filter)
   - `paging`: (Mô tả dữ liệu paging)
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/list-journeys' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{

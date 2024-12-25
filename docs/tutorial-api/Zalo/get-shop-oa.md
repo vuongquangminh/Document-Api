@@ -89,31 +89,31 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| verified         | boolean          |    Mô tả msg_id   |
-| app_id         | string          |    Mô tả msg_id   |
-| avatar         | string          |    Mô tả msg_id   |
-| connection_id         | string          |    Mô tả msg_id   |
-| connection_method         | UNKNOWN          |    Mô tả msg_id   |
-| cover         | string          |    Mô tả msg_id   |
-| created_at         | string          |    Mô tả msg_id   |
-| current_quality         | UNKNOWN          |    Mô tả msg_id   |
-| daily_quota         | number          |    Mô tả msg_id   |
-| daily_quota_promotion         | number          |    Mô tả msg_id   |
-| description         | string          |    Mô tả msg_id   |
-| estimated_next_month_promotion_quota         | number          |    Mô tả msg_id   |
-| expires_at         | string          |    Mô tả msg_id   |
-| is_verified         | boolean          |    Mô tả msg_id   |
-| last_week_quality         | UNKNOWN          |    Mô tả msg_id   |
-| monthly_promotion_quota         | number          |    Mô tả msg_id   |
-| name         | string          |    Mô tả msg_id   |
-| oa_id         | string          |    Mô tả msg_id   |
-| onwer_id         | string          |    Mô tả msg_id   |
-| remaining_monthly_promotion_quota         | number          |    Mô tả msg_id   |
-| remaining_quota         | number          |    Mô tả msg_id   |
-| shop_id         | string          |    Mô tả msg_id   |
-| status         | Z          |    Mô tả msg_id   |
-| updated_at         | string          |    Mô tả msg_id   |
-| webhook_url         | string          |    Mô tả msg_id   |
+| verified         | boolean          |    Mô tả verified   |
+| app_id         | string          |    Mô tả app_id   |
+| avatar         | string          |    Mô tả avatar   |
+| connection_id         | string          |    Mô tả connection_id   |
+| connection_method         | UNKNOWN          |    Mô tả connection_method   |
+| cover         | string          |    Mô tả cover   |
+| created_at         | string          |    Mô tả created_at   |
+| current_quality         | UNKNOWN          |    Mô tả current_quality   |
+| daily_quota         | number          |    Mô tả daily_quota   |
+| daily_quota_promotion         | number          |    Mô tả daily_quota_promotion   |
+| description         | string          |    Mô tả description   |
+| estimated_next_month_promotion_quota         | number          |    Mô tả estimated_next_month_promotion_quota   |
+| expires_at         | string          |    Mô tả expires_at   |
+| is_verified         | boolean          |    Mô tả is_verified   |
+| last_week_quality         | UNKNOWN          |    Mô tả last_week_quality   |
+| monthly_promotion_quota         | number          |    Mô tả monthly_promotion_quota   |
+| name         | string          |    Mô tả name   |
+| oa_id         | string          |    Mô tả oa_id   |
+| onwer_id         | string          |    Mô tả onwer_id   |
+| remaining_monthly_promotion_quota         | number          |    Mô tả remaining_monthly_promotion_quota   |
+| remaining_quota         | number          |    Mô tả remaining_quota   |
+| shop_id         | string          |    Mô tả shop_id   |
+| status         | Z          |    Mô tả status   |
+| updated_at         | string          |    Mô tả updated_at   |
+| webhook_url         | string          |    Mô tả webhook_url   |
 
 ### Bảng Status Response
 

@@ -68,7 +68,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| updated         | number           |    Mô tả msg_id   |
+| updated         | number           |    Mô tả updated   |
 
 ### Bảng Status Response
 

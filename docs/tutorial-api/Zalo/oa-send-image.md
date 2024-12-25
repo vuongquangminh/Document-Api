@@ -43,7 +43,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-image' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{

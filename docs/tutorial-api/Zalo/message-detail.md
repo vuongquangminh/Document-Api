@@ -39,7 +39,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/message-detail' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -100,37 +99,37 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key          | Type            |    Description       |
 |------------- |-----------------|-------------------|
-| charged     | boolean         |    Mô tả verified   |
-| campaign_id     | string         |    Mô tả verified   |
-| created_at     | string         |    Mô tả verified   |
-| delivery_status     | UNKNOWN         |    Mô tả verified   |
-| delivery_time     | string         |    Mô tả verified   |
-| error_code     | number         |    Mô tả verified   |
-| error_message     | string         |    Mô tả verified   |
-| fee_main     | number         |    Mô tả verified   |
-| fee_token     | number         |    Mô tả verified   |
-| feedback     | object         |    Mô tả verified   |
-| id     | string         |    Mô tả verified   |
-| is_charged     | boolean         |    Mô tả verified   |
-| journey_id     | string         |    Mô tả verified   |
-| msg_id     | string         |    Mô tả verified   |
-| note     | string         |    Mô tả verified   |
-| oa_id     | string         |    Mô tả verified   |
-| phone     | string         |    Mô tả verified   |
-| rate     | number         |    Mô tả verified   |
-| sent_time     | string         |    Mô tả verified   |
-| shop_id     | string         |    Mô tả verified   |
-| status     | Z         |    Mô tả verified   |
-| submit_time     | string         |    Mô tả verified   |
-| template_data     | object         |    Mô tả verified   |
-| template_id     | number         |    Mô tả verified   |
-| timeout     | number         |    Mô tả verified   |
-| tracking_id     | string         |    Mô tả verified   |
-| type     | UNKNOWN         |    Mô tả verified   |
-| user_id     | string         |    Mô tả verified   |
-| zl_user_id     | string         |    Mô tả verified   |
-| enable_sms_on_zns_failure     | string         |    Mô tả verified   |
-| sms     | string         |    Mô tả verified   |
+| charged     | boolean         |    Mô tả charged   |
+| campaign_id     | string         |    Mô tả campaign_id   |
+| created_at     | string         |    Mô tả created_at   |
+| delivery_status     | UNKNOWN         |    Mô tả delivery_status   |
+| delivery_time     | string         |    Mô tả delivery_time   |
+| error_code     | number         |    Mô tả error_code   |
+| error_message     | string         |    Mô tả error_message   |
+| fee_main     | number         |    Mô tả fee_main   |
+| fee_token     | number         |    Mô tả fee_token   |
+| feedback     | object         |    Mô tả feedback   |
+| id     | string         |    Mô tả id   |
+| is_charged     | boolean         |    Mô tả is_charged   |
+| journey_id     | string         |    Mô tả journey_id   |
+| msg_id     | string         |    Mô tả msg_id   |
+| note     | string         |    Mô tả note   |
+| oa_id     | string         |    Mô tả oa_id   |
+| phone     | string         |    Mô tả phone   |
+| rate     | number         |    Mô tả rate   |
+| sent_time     | string         |    Mô tả sent_time   |
+| shop_id     | string         |    Mô tả shop_id   |
+| status     | Z         |    Mô tả status   |
+| submit_time     | string         |    Mô tả submit_time   |
+| template_data     | object         |    Mô tả template_data   |
+| template_id     | number         |    Mô tả template_id   |
+| timeout     | number         |    Mô tả timeout   |
+| tracking_id     | string         |    Mô tả tracking_id   |
+| type     | UNKNOWN         |    Mô tả type   |
+| user_id     | string         |    Mô tả user_id   |
+| zl_user_id     | string         |    Mô tả zl_user_id   |
+| enable_sms_on_zns_failure     | string         |    Mô tả enable_sms_on_zns_failure   |
+| sms     | string         |    Mô tả sms   |
 
 
 

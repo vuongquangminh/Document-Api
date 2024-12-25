@@ -38,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/list-messages' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-
   -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -104,21 +103,21 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| charged         | boolean          |    Mô tả msg_id   |
-| campaign_id         | string          |    Mô tả msg_id   |
-| date_from         | string          |    Mô tả msg_id   |
-| date_to         | string          |    Mô tả msg_id   |
-| delivery_status         | UNKNOWN          |    Mô tả msg_id   |
-| is_charged         | boolean          |    Mô tả msg_id   |
-| journey_id         | string          |    Mô tả msg_id   |
+| charged         | boolean          |    Mô tả charged   |
+| campaign_id         | string          |    Mô tả campaign_id   |
+| date_from         | string          |    Mô tả date_from   |
+| date_to         | string          |    Mô tả date_to   |
+| delivery_status         | UNKNOWN          |    Mô tả delivery_status   |
+| is_charged         | boolean          |    Mô tả is_charged   |
+| journey_id         | string          |    Mô tả journey_id   |
 | msg_id         | string          |    Mô tả msg_id   |
-| msg_type         | UNKNOWN          |    Mô tả msg_id   |
-| oa_id         | string          |    Mô tả msg_id   |
-| phone         | string          |    Mô tả msg_id   |
-| status         | Z          |    Mô tả msg_id   |
-| template_id         | number          |    Mô tả msg_id   |
-| charged         | string          |    Mô tả msg_id   |
-| tracking_id         | string          |    Mô tả msg_id   |
+| msg_type         | UNKNOWN          |    Mô tả msg_type   |
+| oa_id         | string          |    Mô tả oa_id   |
+| phone         | string          |    Mô tả phone   |
+| status         | Z          |    Mô tả status   |
+| template_id         | number          |    Mô tả template_id   |
+| charged         | string          |    Mô tả charged   |
+| tracking_id         | string          |    Mô tả tracking_id   |
 
 ### Bảng Status Response
 
