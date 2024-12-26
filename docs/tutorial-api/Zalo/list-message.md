@@ -16,10 +16,9 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
   - `filter`: (Mô tả dữ liệu filter)
   - `paging`: (Mô tả dữ liệu paging)
@@ -28,7 +27,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ID của template </li><li>**campaign_id** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**delivery_status** với kiểu dữ liệu là `unknow` đại diện cho tên của template </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_type** với kiểu dữ liệu là `unknow` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**status** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**tracking_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li></ul>      |
 | page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
@@ -38,7 +37,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/list-messages' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "filter": {

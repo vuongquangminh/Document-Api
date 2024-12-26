@@ -16,23 +16,22 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `message`: (Mô tả dữ liệu message)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `message`: Tin nhắn
+  - `oa_id`: ID của OA
+  - `recipient`: Người nhận
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| message `body`         | object                | false            |      <ul><li>**text**với kiểu dữ liệu là `string` đại diện cho nội dung tin nhắn</li></ul>          |
-| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string` đại diện cho người nhận tin nhắn </li></ul>           |
+| API-KEY `header`       | string                | true            |    Key License         |
+| oa_id `body`         | string                | false            |     ID của OA          |
+| message `body`         | object                | false            |      <ul><li>**text** với kiểu dữ liệu là `string`: Nội dung tin nhắn</li></ul>          |
+| recipient `body`        | object          | false            |    <ul><li> **user_id** với kiểu dữ liệu là `string`: ID người dùng Zalo</li></ul>           |
 
 - **Ví dụ Request**
 
@@ -41,7 +40,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/oa-send-text' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "message": {
@@ -61,7 +59,14 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{}
+{
+  "code": "number",
+  "data": {
+    "token": "string"
+  },
+  "message": "string",
+  "referentId": "string"
+}
 ```
  
 

@@ -16,14 +16,13 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: multipart/form-data`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (API-KEY dùng để xác thực và quản lý quyền truy cập vào API)
-  - `type`: (Mô tả ngắn về type nếu có)
-  - `oaId`: (Mô tả ngắn về oaId nếu có)
+  - `API-KEY`: Key license 
+  - `type`: Kiểu dữ liệu
+  - `oaId`: ID của OA
 - **Body**:
-  - `file`: (Mô tả dữ liệu file truyền vào)
+  - `file`: File muốn upload
 
 
 
@@ -31,10 +30,10 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| type `parameter`         | string                | true            |     Mô tả về type         |
-| oaId `parameter`         | string                | true            |      Mô tả về oaId        |
-| file `body`        | string          | false            |    Mô tả về file          |
+| API-KEY `header`       | string                | true            |    Key license         |
+| type `parameter`         | string                | true            |     Kiểu dữ liệu         |
+| oaId `parameter`         | string                | true            |      ID của OA        |
+| file `body`        | string          | false            |    File muốn upload          |
 
 - **Ví dụ Request**
 
@@ -43,7 +42,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/upload-file?type=UpLoadFile&oaId=Kmj394nbf82n' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "file": "string"
@@ -57,8 +55,21 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{}
+{
+  "code": "number",
+  "data": {
+    "token": "string"
+  },
+  "message": "string",
+  "referentId": "string"
+}
 ```
+
+- **Cấu trúc data của response**
+
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| token     | string         |    Token của file/hình ảnh, sử dụng cho API gửi tin dạng file/hình ảnh   |
 
 ### Bảng Status Response
 

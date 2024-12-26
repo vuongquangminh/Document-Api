@@ -18,10 +18,9 @@ custom_edit_url: null
   - `accept: */*`
   - `Content-Type: application/json`
  
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 
 - **Body**:
   - `destinations`: (Mô tả dữ liệu destinations)
@@ -37,7 +36,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 
 | destinations `body`         | array                | true            |     Mô tả trường destinations      |
 | from `body`         | string                | true            |     Mô tả trường from      |
@@ -56,7 +55,6 @@ curl -X 'POST' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
 
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "destinations": [
@@ -79,7 +77,14 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{}
+{
+  "code": "number",
+  "data": {
+    "token": "string"
+  },
+  "message": "string",
+  "referentId": "string"
+}
 ```
 
 

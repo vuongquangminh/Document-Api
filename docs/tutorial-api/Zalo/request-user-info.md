@@ -16,21 +16,20 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `oa_id`: (Mô tả về oa_id)
-  - `zl_user_id`: (Mô tả về zl_user_id)
+  - `oa_id`: ID của OA
+  - `zl_user_id`: ID người dùng Zalo
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| zl_user_id `body`         | string                | false            |      Mô tả về zl_user_id         |
+| API-KEY `header`       | string                | true            |    Key License         |
+| oa_id `body`         | string                | false            |     ID của OA          |
+| zl_user_id `body`         | string                | false            |      ID người dùng Zalo         |
 
 - **Ví dụ Request**
 
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/request-user-info' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "oa_id": "string",
@@ -63,13 +61,6 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
   "referentId": "string"
 }
 ```
-
-- **Cấu trúc data của response**
-
-| Key        | Type            | Description       |
-|------------- |-----------------|-------------------|
-| updated         | number           |    Mô tả updated   |
-
 ### Bảng Status Response
 
 | Status Code | Status Message            | Description                                                                 |

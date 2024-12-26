@@ -16,18 +16,17 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `oa_id`: (Mô tả dữ liệu oa_id)
+  - `oa_id`: ID của OA
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
+| API-KEY `header`       | string                | true            |    Key License         |
+| oa_id `body`         | string                | false            |     ID của OA          |
 
 - **Ví dụ Request**
 
@@ -36,7 +35,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/refresh-token' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "oa_id": "string"
@@ -64,7 +62,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type             | Description       |
 |------------- |----------------- |-------------------|
-| url         | string           |    Mô tả url   |
+| url         | string           |    Liên kết uỷ quyền OA cho app (ứng dụng)   |
 
 ### Bảng Status Response
 

@@ -17,10 +17,9 @@ custom_edit_url: null
   - `accept: */*`
   - `Content-Type: application/json`
  
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 
 - **Body**:
   - `msisdn`: (Mô tả dữ liệu msisdn)
@@ -35,7 +34,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 
 | msisdn `body`         | string                | true            |     Mô tả trường msisdn      |
 | requestId `body`         | string                | true            |     Mô tả trường requestId      |
@@ -53,7 +52,6 @@ curl -X 'POST' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
 
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "msisdn": "string",

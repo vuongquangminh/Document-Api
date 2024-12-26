@@ -16,10 +16,9 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
   - `shop_id`: (Mô tả dữ liệu shop_id)
   - `redirect_url`: (Mô tả dữ liệu redirect_url)
@@ -28,7 +27,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | shop_id `body`         | string                | false            |     Mô tả trường shop_id      |
 | redirect_url `body`         | string                | false            |     Mô tả trường redirect_url      |
 
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/authorize-shop' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "shop_id": "string",

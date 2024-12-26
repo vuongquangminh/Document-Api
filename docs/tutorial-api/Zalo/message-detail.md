@@ -16,21 +16,20 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
   - `msg_id`: (Mô tả dữ liệu msg_id)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
+  - `oa_id`: ID của OA
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | msg_id `body`         | object                | false            |     Mô tả về msg_id      |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id         |
+| oa_id `body`         | string                | false            |     ID của OA         |
 
 - **Ví dụ Request**
 
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/message-detail' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "msg_id": "string",

@@ -16,13 +16,12 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (API-KE dùng để xác thực và quản lý quyền truy cập vào API của họ)
+  - `API-KEY`: Key license
 - **Body**:
-  - `oa_id`: (Mô tả dữ liệu file oa_id)
-  - `webhook_url`: (Mô tả dữ liệu file webhook_url)
+  - `oa_id`: ID của OA
+  - `webhook_url`: URL Webhook mà bạn muốn nhận event
 
 
 
@@ -30,9 +29,9 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`      | string                | true            |    Mô tả về API-KEY         |
-| oa_id `body`         | string                | false           |     Mô tả về oa_id          |
-| webhook_url `body`         | string                | false             |      Mô tả về webhook_url         |
+| API-KEY `header`      | string                | true            |    Key license         |
+| oa_id `body`         | string                | false           |     ID của OA          |
+| webhook_url `body`         | string                | false             |      URL Webhook mà bạn muốn nhận event         |
 
 - **Ví dụ Request**
 
@@ -41,7 +40,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/update-shop-oa' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "oa_id": "string",
@@ -94,30 +92,30 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key          | Type            |    Description       |
 |------------- |-----------------|-------------------|
-| verified     | boolean         |    Mô tả verified   |
-| app_id     | string         |    Mô tả app_id   |
-| avatar     | string         |    Mô tả avatar   |
-| connection_id     | string         |    Mô tả connection_id   |
-| connection_method     | UNKNOWN         |    Mô tả connection_method   |
-| cover     | string         |    Mô tả cover   |
-| created_at     | string         |    Mô tả created_at   |
-| current_quality     | number         |    Mô tả current_quality   |
-| daily_quota_promotion     | number         |    Mô tả daily_quota_promotion   |
-| description     | string         |    Mô tả description   |
-| estimated_next_month_promotion_quota     | number         |    Mô tả estimated_next_month_promotion_quota   |
-| expires_at     | string         |    Mô tả expires_at   |
-| is_verified     | boolean         |    Mô tả is_verified   |
-| last_week_quality     | UNKNOWN         |    Mô tả last_week_quality   |
-| monthly_promotion_quota     | number         |    Mô tả monthly_promotion_quota   |
-| name     | string         |    Mô tả name   |
-| oa_id     | string         |    Mô tả oa_id   |
-| owner_id     | string         |    Mô tả owner_id   |
-| remaining_monthly_promotion_quota     | number         |    Mô tả remaining_monthly_promotion_quota   |
-| remaining_quota     | number         |    Mô tả remaining_quota   |
-| shop_id     | string         |    Mô tả shop_id   |
-| status     | Z         |    Mô tả status   |
-| updated_at     | string         |    Mô tả updated_at   |
-| webhook_url     | string         |    Mô tả webhook_url   |
+| verified     | boolean         |    <ul><li>**True** : OA được verify </li><li>**False** : OA chưa được verify </li></ul>   |
+| app_id     | string         |    ID của ứng dụng   |
+| avatar     | string         |    Đường dẫn đến ảnh bìa của OA   |
+| connection_id     | string         |    ID kết nối   |
+| connection_method     | UNKNOWN         |    Phương thức kết nối `unknown` `builtin` `direct`   |
+| cover     | string         |    Chưa có mô tả   |
+| created_at     | string         |    Ngày tạo   |
+| current_quality     | number         |    Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA. <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>    |
+| daily_quota_promotion     | number         |    Chưa xác định   |
+| description     | string         |    Mô tả   |
+| estimated_next_month_promotion_quota     | number         |    Chưa xác định   |
+| expires_at     | string         |    Thời gian hết hạn của refresh token   |
+| is_verified     | boolean         |    <ul><li>**True** : OA được verify </li><li>**False** : OA chưa được verify </li></ul>   |
+| last_week_quality     | UNKNOWN         |    Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA. Các giá trị trả về: <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>    |
+| monthly_promotion_quota     | number         |    Chưa xác định   |
+| name     | string         |    Tên OA   |
+| oa_id     | string         |    ID của OA   |
+| owner_id     | string         |    ID của chủ shop trên hệ thống eTelecom   |
+| remaining_monthly_promotion_quota     | number         |    Chưa xác định   |
+| remaining_quota     | number         |    Số thông báo ZNS OA được gửi trong ngày còn lại.   |
+| shop_id     | string         |    ID của shop trên hệ thống eTelecom   |
+| status     | Z         |    Trạng thái <ul><li>**P** : Đang kết nối </li><li>**N** : Ngắt kết nối </li></ul>   |
+| updated_at     | string         |    Ngày cập nhật   |
+| webhook_url     | string         |    URL Webhook mà bạn muốn nhận event   |
 
 ### Bảng Status Response
 

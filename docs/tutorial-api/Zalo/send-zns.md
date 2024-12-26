@@ -16,27 +16,26 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `phone`: (Mô tả dữ liệu phone)
-  - `template_data`: (Mô tả dữ liệu template_data)
-  - `template_id`: (Mô tả dữ liệu template_id)
-  - `tracking_id`: (Mô tả dữ liệu tracking_id)
+  - `oa_id`: ID của OA
+  - `phone`: Số điện thoại người nhận
+  - `template_data`: Các thuộc tính của mẫu tin mà bạn đã đăng ký với Zalo
+  - `template_id`: ID của mẫu tin
+  - `tracking_id`: Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| oa_id `body`         | string                | false            |     Mô tả về oa_id          |
-| phone `body`         | string                | false            |      Mô tả về phone         |
-| template_data `body`        | object          | false            |    Mô tả về template_data           |
-| template_id `body`        | number          | false            |    Mô tả về template_id           |
-| tracking_id `body`        | string          | false            |    Mô tả về tracking_id           |
+| API-KEY `header`       | string                | true            |    Key License         |
+| oa_id `body`         | string                | false            |     ID của OA          |
+| phone `body`         | string                | false            |      Số điện thoại người nhận         |
+| template_data `body`        | object          | false            |    Các thuộc tính của mẫu tin mà bạn đã đăng ký với Zalo **Lưu ý**: Cấu trúc `template_data` được quy định riêng ứng với từng mẫu tin           |
+| template_id `body`        | number          | false            |    ID của mẫu tin           |
+| tracking_id `body`        | string          | false            |    Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của eTelecom cung cấp.           |
 
 - **Ví dụ Request**
 
@@ -45,7 +44,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/send-zns' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "oa_id": "string",
@@ -63,8 +61,72 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{}
+{
+  "code": "number",
+  "data": {
+    {
+      "campaign_id": "string",
+      "created_at": "2019-08-24T14:15:22Z",
+      "delivery_status": "unknown",
+      "delivery_time": "2019-08-24T14:15:22Z",
+      "error_code": 0,
+      "error_message": "string",
+      "fee_main": 0,
+      "fee_token": 0,
+      "id": "string",
+      "is_charged": true,
+      "journey_id": "string",
+      "msg_id": "string",
+      "oa_id": "string",
+      "phone": "string",
+      "sent_time": "2019-08-24T14:15:22Z",
+      "shop_id": "string",
+      "status": "Z",
+      "template_data": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "template_id": 0,
+      "timeout": 0,
+      "tracking_id": "string",
+      "type": "unknown",
+      "updated_at": "2019-08-24T14:15:22Z",
+      "user_id": "string"
+    }
+  },
+  "message": "string",
+  "referentId": "string"
+}
 ```
+
+- **Cấu trúc data của response**
+
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| id     | number         |    ID tin nhắn trên hệ thống của ITS   |
+| shop_id     | number         |    ID cửa hàng trên hệ thống của ITS   |
+| user_id     | number         |    ID người gửi tin trên hệ thống của ITS   |
+| campaign_id     | number         |    ID của chiến dịch   |
+| delivery_status     | string         |    <ul><li>`Unkown`: Không xác định</li><li>`Received`: Đã nhận</li><li>`Seen`: Đã xem</li></ul>   |
+| delivery_time     | string         |    Thời gian thiết bị của người dùng nhận được thông báo ZNS   |
+| error_code     | number         |    Mã lỗi   |
+| error_message     | string         |    Thông báo lỗi   |
+| fee_main     | number         |    Phí chính   |
+| fee_token     | number         |    Phí khởi tạo token   |
+| is_charged     | boolean         |    <ul><li>`True`: Tin ZNS được tính phí</li><li>`False`: Tin ZNS không được tính phí</li></ul>   |
+| journey_id     | string         |    ID của journey   |
+| msg_id     | string         |    ID của thông báo ZNS   |
+| type     | string         |    <ul><li>`template`:  ZNS thường</li><li>`journey`: ZNS  journey</li></ul>   |
+| status     | string         |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| template_data     | object         |    Tham số tin nhắn   |
+| phone     | string         |    Số điện thoại người nhận   |
+| sent_time     | string       |    Thời gian gửi thông báo ZNS   |
+| template_id     | number         |    ID của mẫu tin   |
+| timeout     | number         |    Thời gian tối đa mà hệ thống xử lý yêu cầu   |
+| tracking_id     | string         |    Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa.Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của eTelecom cung cấp.   |
+| updated_at     | string       |    Ngày cập nhật   |
+| created_at     | string       |    Ngày tạo   |
+
 
 
 ### Bảng Status Response

@@ -16,10 +16,9 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 
 - **Body**:
   - `filter`: (Mô tả dữ liệu filter)
@@ -29,7 +28,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | filter `body`         | object                | false            |     <ul><li>**assigned_user_id** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**gender** với kiểu dữ liệu là `UNKNOWN` đại diện cho ID của OA  </li><li>**has_conversation** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**name** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**state** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**tags** với kiểu dữ liệu là `array` đại diện cho ID của OA  </li><li>**zl_user_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**zl_user_ids** với kiểu dữ liệu là `array` đại diện cho ID của OA  </li></ul>      |
 | page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
 - **Ví dụ Request**
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/list-followers' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "filter": {

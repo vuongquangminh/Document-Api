@@ -16,29 +16,28 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `journey_id`: (Mô tả dữ liệu journey_id)
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `phone`: (Mô tả dữ liệu phone)
-  - `template_data`: (Mô tả dữ liệu template_data)
-  - `template_id`: (Mô tả dữ liệu template_id)
-  - `tracking_id`: (Mô tả dữ liệu tracking_id)
+  - `journey_id`: ID journey token
+  - `oa_id`: ID của OA
+  - `phone`: Số điện thoại người nhận
+  - `template_data`: Các thuộc tính của mẫu tin mà bạn đã đăng ký với Zalo
+  - `template_id`: ID của mẫu tin
+  - `tracking_id`: Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
-| journey_id `body`         | string                | false            |     Mô tả về journey_id          |
-| oa_id `body`         | string                | false            |      Mô tả về oa_id         |
-| phone `body`        | string          | false            |    Mô tả về phone           |
-| template_data `body`        | object          | false            |    Mô tả về template_data           |
-| template_id `body`        | number          | false            |    Mô tả về template_id           |
-| tracking_id `body`        | string          | false            |    Mô tả về tracking_id           |
+| API-KEY `header`       | string                | true            |    Key License         |
+| journey_id `body`         | string                | false            |     ID journey token          |
+| oa_id `body`         | string                | false            |      ID của OA         |
+| phone `body`        | string          | false            |    Số điện thoại người nhận           |
+| template_data `body`        | object          | false            |    Các thuộc tính của mẫu tin mà bạn đã đăng ký với Zalo **Lưu ý**: Cấu trúc **template_data** được quy định riêng ứng với từng mẫu tin           |
+| template_id `body`        | number          | false            |    ID của mẫu tin           |
+| tracking_id `body`        | string          | false            |    Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng **tracking_id** để đối soát mà không phụ thuộc vào **message_id** của eTelecom cung cấp           |
 
 - **Ví dụ Request**
 
@@ -47,7 +46,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/send-journey-zns' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "journey_id": "string",
@@ -66,7 +64,14 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 - **Ví dụ Response**
 
 ```json
-{}
+{
+  "code": "number",
+  "data": {
+    "token": "string"
+  },
+  "message": "string",
+  "referentId": "string"
+}
 ```
 
 

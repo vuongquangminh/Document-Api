@@ -16,19 +16,18 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
-  - `oa_id`: (Mô tả dữ liệu oa_id)
-  - `phone`: (Mô tả dữ liệu phone)
+  - `oa_id`: ID của OA
+  - `phone`: Số điện thoại người nhận
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
 | phone `body`         | string                | false            |     Mô tả trường phone      |
 
@@ -39,7 +38,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/create-journey' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "oa_id": "string",

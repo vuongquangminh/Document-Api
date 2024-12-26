@@ -16,13 +16,12 @@ custom_edit_url: null
 - **Headers**: 
   - `accept: */*`
   - `Content-Type: application/json`
-  - `Authorization: Bearer {token}`
   - `API-KEY: {API_KEY}`
 - **Parameters**:
-  - `API-KEY`: (Mô tả về API-KEY)
+  - `API-KEY`: Key License
 - **Body**:
   - `email`: (Mô tả dữ liệu email)
-  - `phone`: (Mô tả dữ liệu phone)
+  - `phone`: Số điện thoại người nhận
   - `name`: (Mô tả dữ liệu name)
   - `redirect_url`: (Mô tả dữ liệu redirect_url)
 
@@ -30,7 +29,7 @@ custom_edit_url: null
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
-| API-KEY `header`       | string                | true            |    Mô tả về API-KEY         |
+| API-KEY `header`       | string                | true            |    Key License         |
 | email `body`         | string                | false            |     Mô tả trường email      |
 | phone `body`         | string                | false            |     Mô tả trường phone      |
 | name `body`         | string                | false            |     Mô tả trường name      |
@@ -43,7 +42,6 @@ curl -X 'POST' \
   'https://cpaas.interits.com/api/vendor/v1/zalo/create-shop' \
   -H 'accept: */*' \
   -H 'API-KEY: $API_KEY' \
-  -H 'Authorization: Bearer $accessToken' \
   -H 'Content-Type: application/json' \
   -d '{
   "email": "string",
