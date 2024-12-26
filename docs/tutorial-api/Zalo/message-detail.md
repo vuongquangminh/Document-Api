@@ -20,7 +20,7 @@ custom_edit_url: null
 - **Parameters**:
   - `API-KEY`: Key License
 - **Body**:
-  - `msg_id`: (Mô tả dữ liệu msg_id)
+  - `msg_id`: Message ID
   - `oa_id`: ID của OA
 
 - **Cấu trúc request**
@@ -28,7 +28,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| msg_id `body`         | object                | false            |     Mô tả về msg_id      |
+| msg_id `body`         | object                | false            |     Message ID      |
 | oa_id `body`         | string                | false            |     ID của OA         |
 
 - **Ví dụ Request**
@@ -97,37 +97,32 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key          | Type            |    Description       |
 |------------- |-----------------|-------------------|
-| charged     | boolean         |    Mô tả charged   |
-| campaign_id     | string         |    Mô tả campaign_id   |
-| created_at     | string         |    Mô tả created_at   |
-| delivery_status     | UNKNOWN         |    Mô tả delivery_status   |
-| delivery_time     | string         |    Mô tả delivery_time   |
-| error_code     | number         |    Mô tả error_code   |
-| error_message     | string         |    Mô tả error_message   |
-| fee_main     | number         |    Mô tả fee_main   |
-| fee_token     | number         |    Mô tả fee_token   |
-| feedback     | object         |    Mô tả feedback   |
-| id     | string         |    Mô tả id   |
-| is_charged     | boolean         |    Mô tả is_charged   |
-| journey_id     | string         |    Mô tả journey_id   |
-| msg_id     | string         |    Mô tả msg_id   |
-| note     | string         |    Mô tả note   |
-| oa_id     | string         |    Mô tả oa_id   |
-| phone     | string         |    Mô tả phone   |
-| rate     | number         |    Mô tả rate   |
-| sent_time     | string         |    Mô tả sent_time   |
-| shop_id     | string         |    Mô tả shop_id   |
-| status     | Z         |    Mô tả status   |
-| submit_time     | string         |    Mô tả submit_time   |
-| template_data     | object         |    Mô tả template_data   |
-| template_id     | number         |    Mô tả template_id   |
-| timeout     | number         |    Mô tả timeout   |
-| tracking_id     | string         |    Mô tả tracking_id   |
-| type     | UNKNOWN         |    Mô tả type   |
-| user_id     | string         |    Mô tả user_id   |
-| zl_user_id     | string         |    Mô tả zl_user_id   |
-| enable_sms_on_zns_failure     | string         |    Mô tả enable_sms_on_zns_failure   |
-| sms     | string         |    Mô tả sms   |
+| is_charged     | boolean         |    <ul><li>`True`: Tin ZNS được tính phí</li><li>`Received`: Tin ZNS không được tính phí</li></ul>   |
+| campaign_id     | string         |    ID của chiến dịch   |
+| created_at     | string         |    Ngày tạo   |
+| delivery_status     | string         |    <ul><li>`Unkown`: Không xác định</li><li>`Received`: Đã nhận </li></ul>   |
+| delivery_time     | string         |    Thời gian thiết bị của người dùng nhận được thông báo ZNS   |
+| error_code     | number         |    Mã lỗi   |
+| error_message     | string         |    Thông báo lỗi   |
+| fee_main     | number         |    Phí chính   |
+| fee_token     | number         |    Phí khởi tạo token   |
+| feedback     | array         |    Phần nhận xét từ khách hàng   |
+| id     | string         |    ID tin nhắn trên hệ thống của ITS   |
+| journey_id     | string         | ID của journey   |
+| msg_id     | string         |    ID của thông báo ZNS   |
+| note     | string         |    Phần ghi chú thêm của khách hàng   |
+| phone     | string         |   Số điện thoại người nhận   |
+| rate     | number         |    Số sao được khách hàng đánh giá   |
+| sent_time     | string         |   Thời gian gửi thông báo ZNS   |
+| shop_id     | string         |    ID cửa hàng trên hệ thống của ITS   |
+| status     | Z         |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| submit_time     | string         |    Thời điểm khách hàng gửi đánh giá   |
+| template_data     | object         |    Tham số tin nhắn   |
+| template_id     | number         |    ID của mẫu tin   |
+| timeout     | number         |    Thời gian tối đa mà hệ thống xử lý yêu cầu   |
+| tracking_id     | string         |   Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của ITS cung cấp.   |
+| type     | string         |    <ul><li>`template`: ZNS thường</li><li>`journey`: ZNS  journey</li></ul>   |
+| user_id     | string         |    ID người gửi tin trên hệ thống của ITS   |
 
 
 

@@ -61,6 +61,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
   "referentId": "string"
 }
 ```
+
 ### Bảng Status Response
 
 | Status Code | Status Message            | Description                                                                 |

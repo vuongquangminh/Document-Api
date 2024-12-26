@@ -62,12 +62,33 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 {
   "code": "number",
   "data": {
-    "token": "string"
-  },
+    "direction": "in",
+    "msg_id": "string",
+    "oa_id": "string",
+    "recipient_id": "string",
+    "sender_id": "string",
+    "shop_id": "string",
+    "type": "unknown",
+    "user_id": "string",
+    "zl_user_id": "string"
+    },
   "message": "string",
   "referentId": "string"
 }
 ```
+
+- **Cấu trúc data của response**
+
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| direction     | string          |    `in` `out`   |
+| msg_id     | string          |    ID của thông báo   |
+| oa_id     | string          |     ID của OA   |
+| recipient_id     | string          |    ID của người nhận   |
+| sender_id     | string          |    ID người gửi   |
+| shop_id     | string          |    ID của shop trên eTelecom   |
+| type     | string          |    `unknown` `text` `audio` `video` `photo` `GIF` `file`  `sticker`  `location`  `business_card`   |
+| user_id     | string          |    ID user trên eTelecom   |
  
 
 ### Bảng Status Response

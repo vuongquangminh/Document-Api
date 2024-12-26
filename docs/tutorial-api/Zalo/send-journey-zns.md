@@ -67,12 +67,56 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 {
   "code": "number",
   "data": {
-    "token": "string"
+    "created_at": "dateTime",
+    "delivery_time": "dateTime",
+    "id": "number",
+    "is_charged": "boolean",
+    "journey_id": "string",
+    "msg_id": "string",
+    "msg_type": "journey",
+    "phone": "string",
+    "price": "number",
+    "sent_time": "dateTime",
+    "template_id": "number",
+    "timeout": "number",
+    "tracking_id": "string",
+    "updated_at": "dateTime"
   },
   "message": "string",
   "referentId": "string"
 }
 ```
+
+- **Cấu trúc data của response**
+
+| Key          | Type            |    Description       |
+|------------- |-----------------|-------------------|
+| id     | number         |    ID tin nhắn trên hệ thống của eTelecom   |
+| shop_id     | number         |    ID cửa hàng trên hệ thống của eTelecom   |
+| user_id     | number         |    ID người gửi tin trên hệ thống của eTelecom   |
+| campaign_id     | number         |    ID của chiến dịch   |
+| delivery_status     | string         |    <ul><li>`Unkown`:  Không xác định</li><li>`Received`: Đã nhận</li><li>`Seen`: Đã xem</li></ul>   |
+| delivery_time     | string         |    Thời gian thiết bị của người dùng nhận được thông báo ZNS   |
+| error_code     | number         |    Mã lỗi   |
+| error_message     | string         |   Thông báo lỗi   |
+| fee_main     | number         |    Phí chính   |
+| fee_token     | number         |    Phí khởi tạo token   |
+| is_charged     | boolean         |    <ul><li>`True`: Tin ZNS được tính phí</li><li>`False`: Tin ZNS không được tính phí</li></ul>   |
+| journey_id     | string         |    ID của journey   |
+| msg_id     | string         |    ID của thông báo ZNS   |
+| type     | string         |    <ul><li>`template`: Tin ZNS được tính phí</li><li>`journey`: Tin ZNS không được tính phí</li></ul>   |
+| status     | string         |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| template_data     | object         |    Tham số tin nhắn   |
+| phone     | string         |    Số điện thoại người nhận   |
+| sent_time     | string         |    Thời gian gửi thông báo ZNS   |
+| template_id     | number         |    ID của mẫu tin   |
+| timeout     | number         |    Thời gian tối đa mà hệ thống xử lý yêu cầu   |
+| tracking_id     | string         |    Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của eTelecom cung cấp.   |
+| updated_at     | string         |    Ngày cập nhật   |
+| created_at     | string         |    Ngày tạo   |
+
+
+
 
 
 ### Bảng Status Response

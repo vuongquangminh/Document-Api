@@ -97,20 +97,15 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 | avatar     | string         |    Đường dẫn đến ảnh bìa của OA   |
 | connection_id     | string         |    ID kết nối   |
 | connection_method     | UNKNOWN         |    Phương thức kết nối `unknown` `builtin` `direct`   |
-| cover     | string         |    Chưa có mô tả   |
 | created_at     | string         |    Ngày tạo   |
 | current_quality     | number         |    Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA. <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>    |
-| daily_quota_promotion     | number         |    Chưa xác định   |
 | description     | string         |    Mô tả   |
-| estimated_next_month_promotion_quota     | number         |    Chưa xác định   |
 | expires_at     | string         |    Thời gian hết hạn của refresh token   |
 | is_verified     | boolean         |    <ul><li>**True** : OA được verify </li><li>**False** : OA chưa được verify </li></ul>   |
 | last_week_quality     | UNKNOWN         |    Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA. Các giá trị trả về: <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>    |
-| monthly_promotion_quota     | number         |    Chưa xác định   |
 | name     | string         |    Tên OA   |
 | oa_id     | string         |    ID của OA   |
 | owner_id     | string         |    ID của chủ shop trên hệ thống eTelecom   |
-| remaining_monthly_promotion_quota     | number         |    Chưa xác định   |
 | remaining_quota     | number         |    Số thông báo ZNS OA được gửi trong ngày còn lại.   |
 | shop_id     | string         |    ID của shop trên hệ thống eTelecom   |
 | status     | Z         |    Trạng thái <ul><li>**P** : Đang kết nối </li><li>**N** : Ngắt kết nối </li></ul>   |
