@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # List Message
 
-## Api List Message lên zalo
+## Api List Message  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/list-messages
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/list-messages
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -28,8 +40,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ID của template </li><li>**campaign_id** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**delivery_status** với kiểu dữ liệu là `unknow` đại diện cho tên của template </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**msg_type** với kiểu dữ liệu là `unknow` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**status** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**tracking_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li></ul>      |
-| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
+| filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean`: Tính phí hay không</li><li>**campaign_id** với kiểu dữ liệu là `string`: ID của chiến dịch  </li><li>**date_from** với kiểu dữ liệu là `string`: Ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string`: Ngày kết thúc  </li><li>**delivery_status** với kiểu dữ liệu là `enum`: <ul><li>`unknown`</li><li>`received`</li><li>`seen`</li></ul> </li><li>**is_charged** với kiểu dữ liệu là `boolean`: Tính phí hay không  </li><li>**journey_id** với kiểu dữ liệu là `string`: ID của journey  </li><li>**msg_id** với kiểu dữ liệu là `string`: ID của thông báo ZNS </li><li>**msg_type** với kiểu dữ liệu là `enum`: <ul><li>`unknown`</li><li>`template`</li><li>`journey`</li><li>`uid`</li></ul>  </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**phone** với kiểu dữ liệu là `string`: Số điện thoại người nhận  </li><li>**status** với kiểu dữ liệu là `enum`:<ul><li>`Z`: Mới tạo</li><li>`P`: Enable</li><li> `N`: Disable</li></ul></li><li>**template_id** với kiểu dữ liệu là `number`: ID của mẫu tin</li><li>**tracking_id** với kiểu dữ liệu là `string`: Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của ITS cung cấp.</li></ul> |
 - **Ví dụ Request**
 
 ```bash
@@ -101,21 +112,35 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| charged         | boolean          |    Mô tả charged   |
-| campaign_id         | string          |    Mô tả campaign_id   |
-| date_from         | string          |    Mô tả date_from   |
-| date_to         | string          |    Mô tả date_to   |
-| delivery_status         | UNKNOWN          |    Mô tả delivery_status   |
-| is_charged         | boolean          |    Mô tả is_charged   |
-| journey_id         | string          |    Mô tả journey_id   |
-| msg_id         | string          |    Mô tả msg_id   |
-| msg_type         | UNKNOWN          |    Mô tả msg_type   |
-| oa_id         | string          |    Mô tả oa_id   |
-| phone         | string          |    Mô tả phone   |
-| status         | Z          |    Mô tả status   |
-| template_id         | number          |    Mô tả template_id   |
-| charged         | string          |    Mô tả charged   |
-| tracking_id         | string          |    Mô tả tracking_id   |
+| id         | string          |    ID tin nhắn trên hệ thống của ITS   |
+| shop_id         | string          |  ID cửa hàng trên hệ thống của ITS   |
+| user_id         | string          |    ID người gửi tin trên hệ thống của ITS   |
+| campaign_id         | string          |    ID của chiến dịch   |
+| delivery_status         | UNKNOWN          |    <ul><li>`Unkown`: Không xác định</li><li>`Received`: Đã nhận </li><li>`Seen`: Đã xem</li></ul>   |
+| delivery_time         | string          |    Thời gian thiết bị của người dùng nhận được thông báo ZNS   |
+| error_code         | number          |    Mã lỗi   |
+| error_message         | string          |   Thông báo lỗi   |
+| fee_main         | number          |    Phí chính   |
+| fee_token         | number          |    Phí khởi tạo token   |
+| is_charged         | boolean          |    <ul><li>`True`: Tin ZNS được tính phí</li><li>`False`: Tin ZNS không được tính phí</li></ul>   |
+| journey_id         | string          |    ID của journey   |
+| msg_id         | string          |    ID của thông báo ZNS   |
+| type         | UNKNOWN          |    <ul><li>`template`: Tin ZNS được tính phí</li><li>`journey`: Tin ZNS không được tính phí</li></ul>   |
+| status         | Z          |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| rate         | number          |    Số sao được khách hàng đánh giá   |
+| note         | string          |    Phần ghi chú thêm của khách hàng   |
+| feedback         | array          |    Phần nhận xét của khách hàng   |
+| submit_time         | string          |    Thời điểm khách hàng gửi đánh giá   |
+| template_data         | object          |    Tham số tin nhắn   |
+| phone         | string          |    Số điện thoại người nhận   |
+
+| sent_time         | string          |    Thời gian gửi thông báo ZNS   |
+| template_id         | number          |    ID của mẫu tin   |
+| timeout         | number          |    Thời gian tối đa mà hệ thống xử lý yêu cầu   |
+| tracking_id         | string          |    Mã số đánh dấu lần gọi API của bạn, do bạn định nghĩa. Bạn có thể dùng `tracking_id` để đối soát mà không phụ thuộc vào `message_id` của ITS cung cấp.   |
+| updated_at         | string          |    Ngày cập nhật   |
+| created_at         | string          |    Ngày tạo   |
+
 
 ### Bảng Status Response
 

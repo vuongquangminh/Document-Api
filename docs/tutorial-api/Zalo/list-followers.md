@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # List Followers
 
-## Api List Followers lên zalo
+## Api List Followers  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/list-followers
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/list-followers
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -29,8 +41,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| filter `body`         | object                | false            |     <ul><li>**assigned_user_id** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**gender** với kiểu dữ liệu là `UNKNOWN` đại diện cho ID của OA  </li><li>**has_conversation** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**name** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**state** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**tags** với kiểu dữ liệu là `array` đại diện cho ID của OA  </li><li>**zl_user_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**zl_user_ids** với kiểu dữ liệu là `array` đại diện cho ID của OA  </li></ul>      |
-| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
+| filter `body`         | object                | false            |     <ul><li>**assigned_user_id** với kiểu dữ liệu là `string`: ID nhân viên được gán</li><li>**date_from** với kiểu dữ liệu là `string`: Ngày bắt đầu</li><li>**date_to** với kiểu dữ liệu là `string`: Ngày kết thúc </li><li>**gender** với kiểu dữ liệu là `enum `: <ul><li>`unknown`</li><li>`male`</li><li>`female`</li><li>`other`</li></ul></li><li>**has_conversation** với kiểu dữ liệu là `boolean`: <ul><li>`True`: Có cuộc hội thoại</li><li>`False`: Không có cuộc hội thoại</li></ul>  </li><li>**name** với kiểu dữ liệu là `string`: Tên người dùng Zalo </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**phone** với kiểu dữ liệu là `string`: Số điện thoại người dùng </li><li>**state** với kiểu dữ liệu là `string`: <ul><li>`follow`: Đã quan tâm</li><li>`unfollow`: Chưa quan tâm</li></ul>  </li><li>**tags** với kiểu dữ liệu là `array`: Nhãn được gán cho người dùng  </li><li>**zl_user_id** với kiểu dữ liệu là `string`: ID người dùng Zalo</li><li>**zl_user_ids** với kiểu dữ liệu là `array`: Danh sách ID người dùng Zalo</li></ul>      |
 - **Ví dụ Request**
 
 ```bash
@@ -204,8 +215,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| paging         | object          |    <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**next** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**prev** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho loại template  </li></ul>      |
-|  followers | array | <ul><li>**assigned_user_id** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**avatar** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**avatars** với kiểu dữ liệu là `object` đại diện cho ID của OA  </li><li>**created_at** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**full_name** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**gender** với kiểu dữ liệu là `UNKNOWN` đại diện cho loại template  </li><li>**has_conversation** với kiểu dữ liệu là `boolean` đại diện cho tên của template </li><li>**id** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**last_conversation** với kiểu dữ liệu là `object` đại diện cho tên của template </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**shared_info** với kiểu dữ liệu là `object` đại diện cho tên của template </li><li>**shop_id** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**state** với kiểu dữ liệu là `FOLLOW` đại diện cho tên của template </li><li>**tags_and_notes_info** với kiểu dữ liệu là `object` đại diện cho tên của template </li><li>**updated_at** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**zl_user_id** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**zl_user_id_by_app** với kiểu dữ liệu là `string` đại diện cho tên của template </li></ul> |
+|  followers | array | <ul><li>**assigned_user_id** với kiểu dữ liệu là `string`: ID nhân viên được gán  </li><li>**avatar** với kiểu dữ liệu là `string`: Ảnh đại diện người dùng  </li><li>**avatars** với kiểu dữ liệu là `object`: ID của OA  </li><li>**created_at** với kiểu dữ liệu là `string`: Thời điểm ghi nhận tương tác </li><li>**full_name** với kiểu dữ liệu là `string`: Tên người dùng </li><li>**id** với kiểu dữ liệu là `string`: ID người dùng trên eTelecom</li><li>**gender** với kiểu dữ liệu là `enum`: <ul><li>`unknown`</li><li>`male`</li><li>`female`</li><li>`other`</li></ul></li><li>**has_conversation** với kiểu dữ liệu là `boolean`: <ul><li>`True`: Có cuộc hội thoại</li><li>`False`: Không có cuộc hội thoại</li></ul> </li><li>**last_conversation** với kiểu dữ liệu là `object`: tên của template </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA</li><li>**phone** với kiểu dữ liệu là `string`: Số điện thoại người dùng</li><li>**shared_info** với kiểu dữ liệu là `object`: Người dùng đồng ý chia sẻ thông tin: <ul><li>**address** với kiểu dữ liệu là `string`: Địa chỉ </li><li>**city** với kiểu dữ liệu là `string`: Thành phố </li><li>**district** với kiểu dữ liệu là `string`: Quận, Huyện </li><li>**ward** với kiểu dữ liệu là `string`: Phường </li><li>**name** với kiểu dữ liệu là `string`: Tên người dùng Zalo </li></ul> </li><li>**shop_id** với kiểu dữ liệu là `string`: ID shop trên eTelecom</li><li>**state** với kiểu dữ liệu là `enum`: <ul><li>`follow`: Đã quan tâm</li><li>`unfollow`: Chưa quan tâm</li></ul>  </li><li>**tag** với kiểu dữ liệu là `array`: Nhãn được gán cho người dùng </li><li>**tags_and_notes_info** với kiểu dữ liệu là `object`: tên của template </li><li>**updated_at** với kiểu dữ liệu là `string`: Thời điểm update</li><li>**zl_user_id** với kiểu dữ liệu là `string`: ID người dùng Zalo</li><li>**zl_user_id_by_app** với kiểu dữ liệu là `string`: ID người dùng Zalo theo app</li></ul> |
 
 ### Bảng Status Response
 

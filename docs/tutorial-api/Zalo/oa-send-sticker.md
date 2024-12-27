@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # OA send sticker
 
-## Api OA send sticker lên zalo
+## Api OA send sticker  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/oa-send-sticker
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/oa-send-sticker
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -22,7 +34,7 @@ custom_edit_url: null
 - **Body**:
   - `message`: Tin nhắn
   - `oa_id`: ID của OA
-  - `recipient`: (Mô tả dữ liệu recipient)
+  - `recipient`: Người nhận
 
 - **Cấu trúc request**
 
@@ -108,6 +120,5 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 | 502         | Bad Gateway               | Server là một gateway hoặc proxy và nhận được phản hồi không hợp lệ từ server khác. |
 | 503         | Service Unavailable       | Server không thể xử lý yêu cầu do quá tải hoặc bảo trì.                    |
 | 504         | Gateway Timeout           | Server không nhận được phản hồi kịp thời từ server phụ trợ.                |
-
 
 

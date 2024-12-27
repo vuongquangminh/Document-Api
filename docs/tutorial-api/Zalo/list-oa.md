@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # List OA
 
-## Api List OA lên zalo
+## Api List OA  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/list-oa
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/list-oa
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -104,7 +116,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| accounts | array |  <ul><li>**is_verified** với kiểu dữ liệu là `boolean`: <ul><li>`True`: OA được verify</li><li> `False`: OA chưa được verify</li></ul> </li><li>**app_id** với kiểu dữ liệu là `string`: ID của ứng dụng  </li><li>**avatar** với kiểu dữ liệu là `string`: Đường dẫn đến ảnh bìa của OA  </li><li>**connection_id** với kiểu dữ liệu là `string`: ID kết nối </li><li>**connection_method** với kiểu dữ liệu là `string`: Phương thức kết nối `direct` </li><li>**created_at** với kiểu dữ liệu là `string`: Ngày tạo  </li><li>**current_quality** với kiểu dữ liệu là `string`: Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA  </li><li>**daily_quota** với kiểu dữ liệu là `number`: Số thông báo ZNS OA được gửi trong 1 ngày.  </li><li>**description** với kiểu dữ liệu là `string`: Mô tả  </li><li>**expires_at** với kiểu dữ liệu là `string`: Thời gian hết hạn của refresh token  </li><li>**last_week_quality** với kiểu dữ liệu là `string`: Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA.  </li><li>**name** với kiểu dữ liệu là `string`: Tên OA  </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**onwer_id** với kiểu dữ liệu là `string`: ID của chủ shop trên hệ thống ITS  </li><li>**remaining_quota** với kiểu dữ liệu là `number`: Số thông báo ZNS OA được gửi trong ngày còn lại </li><li>**shop_id** với kiểu dữ liệu là `string`: ID của shop trên hệ thống ITS  </li><li>**status** với kiểu dữ liệu là `Z`: Trạng thái <ul><li>`P`: Đang kết nối</li><li> `N`: Ngắt kết nối</li></ul> </li><li>**updated_at** với kiểu dữ liệu là `string`: Ngày cập nhật  </li></ul> | 
+| accounts | array |  <ul><li>**app_id** với kiểu dữ liệu là `string`: ID của ứng dụng  </li><li>**avatar** với kiểu dữ liệu là `string`: Đường dẫn đến ảnh bìa của OA  </li><li>**connection_id** với kiểu dữ liệu là `string`: ID kết nối </li><li>**connection_method** với kiểu dữ liệu là `string`: Phương thức kết nối `direct` </li><li>**description** với kiểu dữ liệu là `string`: Mô tả  </li><li>**is_verified** với kiểu dữ liệu là `boolean`: <ul><li>`True`: OA được verify</li><li> `False`: OA chưa được verify</li></ul> </li><li>**name** với kiểu dữ liệu là `string`: Tên OA  </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**onwer_id** với kiểu dữ liệu là `string`: ID của chủ shop trên hệ thống ITS  </li><li>**shop_id** với kiểu dữ liệu là `string`: ID của shop trên hệ thống ITS  </li><li>**status** với kiểu dữ liệu là `Z`: Trạng thái <ul><li>`P`: Đang kết nối</li><li> `N`: Ngắt kết nối</li></ul> </li><li>**current_quality** với kiểu dữ liệu là `string`: Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA  </li><li>**last_week_quality** với kiểu dữ liệu là `string`: Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA.  </li><li>**daily_quota** với kiểu dữ liệu là `number`: Số thông báo ZNS OA được gửi trong 1 ngày.  </li><li>**remaining_quota** với kiểu dữ liệu là `number`: Số thông báo ZNS OA được gửi trong ngày còn lại </li><li>**expires_at** với kiểu dữ liệu là `string`: Thời gian hết hạn của refresh token  </li><li>**created_at** với kiểu dữ liệu là `string`: Ngày tạo  </li><li>**updated_at** với kiểu dữ liệu là `string`: Ngày cập nhật  </li></ul> | 
 
 ### Bảng Status Response
 

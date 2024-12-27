@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # List Templates
 
-## Api List Template lên zalo
+## Api List Template  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/list-templates
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/list-templates
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -28,8 +40,8 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| filter `body`         | object                | false            |     <ul><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number` đại diện cho ID của template </li><li>**template_name** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**type** với kiểu dữ liệu là `unknow` đại diện cho loại template  </li></ul>      |
-| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
+| filter `body`         | object                | false            |     <ul><li>**date_from** với kiểu dữ liệu là `string`: Ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string`: Ngày kết thúc  </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**template_id** với kiểu dữ liệu là `number`: ID của mẫu tin</li><li>**template_name** với kiểu dữ liệu là `string`: Tên mẫu tin </li><li>**type** với kiểu dữ liệu là `enum`: <ul><li>`unknown`</li><li>`text`</li><li>`otp`</li><li>`table`</li><li>`rating`</li></ul></li></ul>      |
+
 - **Ví dụ Request**
 
 ```bash
@@ -131,5 +143,11 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 | 503         | Service Unavailable       | Server không thể xử lý yêu cầu do quá tải hoặc bảo trì.                    |
 | 504         | Gateway Timeout           | Server không nhận được phản hồi kịp thời từ server phụ trợ.                |
 
-
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 

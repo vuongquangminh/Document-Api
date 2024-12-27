@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Request User Info
 
-## Api Request User Info lên zalo
+## Api Request User Info  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/request-user-info
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/request-user-info
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 

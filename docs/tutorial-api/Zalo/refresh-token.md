@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Refresh Token
 
-## Api refresh token lên zalo
+## Api refresh token  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/refresh-token
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/refresh-token
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 

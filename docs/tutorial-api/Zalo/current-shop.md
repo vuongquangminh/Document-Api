@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Current Shop
 
-## Api Current Shop lên zalo
+## Api Current Shop  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/current-shop
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/current-shop
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -63,11 +75,9 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| id         | string          |    Mô tả id   |
-| image_url         | string           |    Mô tả image_url   |
-| name         | string          |    Mô tả name   |
-| type         | string          |    Mô tả type   |
-| website         | string          |    Mô tả website   |
+| id         | string          |    ID của tài khoản   |
+| name         | string          |    Tên tài khoản   |
+| type         | string          |    Loại tài khoản: <ul><li>`Partner`</li><li>`Shop`</li></ul>   |
 
 ### Bảng Status Response
 

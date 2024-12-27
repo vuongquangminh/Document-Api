@@ -5,9 +5,9 @@ custom_edit_url: null
 
 # Callback
 
-## Api Callback lên zalo
+## Api Callback  
 
-`POST` $BASE_URL/api/vendor/v1/sms/callback
+  `POST` __$BASE_URL__/api/vendor/v1/sms/callback
 
 ### Thông tin Request
 

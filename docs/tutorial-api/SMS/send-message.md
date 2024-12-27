@@ -6,9 +6,9 @@ custom_edit_url: null
 
 # Send Message
 
-## Api Send Message lên zalo
+## Api Send Message  
 
-`POST` $BASE_URL/api/vendor/v1/sms/send-message
+  `POST` __$BASE_URL__/api/vendor/v1/sms/send-message
 
 ### Thông tin Request
 
@@ -37,7 +37,6 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-
 | destinations `body`         | array                | true            |     Mô tả trường destinations      |
 | from `body`         | string                | true            |     Mô tả trường from      |
 | text `body`         | string                | true            |     Mô tả trường text      |

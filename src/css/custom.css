@@ -26,6 +26,9 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+ol {
+  list-style-type: decimal !important; /* Hiển thị danh sách với số tự nhiên */
+}
 
 
 

@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Create Shop
 
-## Api Create Shop lên zalo
+## Api Create Shop  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/create-shop
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/create-shop
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -78,12 +90,12 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| auth_token         | string          |    Mô tả msg_id   |
-| auth_url         | string          |    Mô tả msg_id   |
-| code         | string          |    Mô tả msg_id   |
-| expires_in         | number          |    Mô tả msg_id   |
-| meta         | object          |    Mô tả msg_id   |
-| msg         | string          |    Mô tả msg_id   |
+| auth_token         | string          |    Mã ủy quyền   |
+| auth_url         | string          |    Đường dẫn ủy quyền   |
+| code         | string          |    Trạng thái thành công hay thất bại   |
+| expires_in         | string          |    Thời gian hết hạn   |
+| meta         | object          |    Thuộc tính nếu có   |
+| msg         | string          |    Mô tả api   |
 | type         | SHOP_KEY          |    Mô tả msg_id   |
 
 ### Bảng Status Response

@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Get Shop OA
 
-## Api Get Shop OA lên zalo
+## Api Get Shop OA  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/get-shop-oa
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/get-shop-oa
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -27,7 +39,7 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
+| oa_id `body`         | string                | false            |     ID của OA      |
 
 - **Ví dụ Request**
 
@@ -87,30 +99,31 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| verified         | boolean          |    Mô tả verified   |
-| app_id         | string          |    Mô tả app_id   |
-| avatar         | string          |    Mô tả avatar   |
-| connection_id         | string          |    Mô tả connection_id   |
-| connection_method         | UNKNOWN          |    Mô tả connection_method   |
+| verified         | boolean          |    <ul><li>`True`: OA được verify</li><li> `False`: OA chưa được verify</li></ul>    |
+| app_id         | string          |    ID của ứng dụng   |
+| avatar         | string          |    Đường dẫn đến ảnh bìa của OA   |
+| connection_id         | string          |    ID kết nối   |
+| connection_method         | string          |    Phương thức kết nối <ul><li>`unknown`</li><li>`builtin`</li><li>`direct`</li></ul>   |
 | cover         | string          |    Mô tả cover   |
 | created_at         | string          |    Mô tả created_at   |
-| current_quality         | UNKNOWN          |    Mô tả current_quality   |
-| daily_quota         | number          |    Mô tả daily_quota   |
-| daily_quota_promotion         | number          |    Mô tả daily_quota_promotion   |
-| description         | string          |    Mô tả description   |
-| estimated_next_month_promotion_quota         | number          |    Mô tả estimated_next_month_promotion_quota   |
-| expires_at         | string          |    Mô tả expires_at   |
-| is_verified         | boolean          |    Mô tả is_verified   |
-| last_week_quality         | UNKNOWN          |    Mô tả last_week_quality   |
-| monthly_promotion_quota         | number          |    Mô tả monthly_promotion_quota   |
-| name         | string          |    Mô tả name   |
-| oa_id         | string          |    Mô tả oa_id   |
-| onwer_id         | string          |    Mô tả onwer_id   |
-| remaining_monthly_promotion_quota         | number          |    Mô tả remaining_monthly_promotion_quota   |
+| description         | string          |    Mô tả   |
+| estimated_next_month_promotion_quota         | number          |   Số tin ZNS hậu mãi dự kiến mà OA có thể gửi trong tháng tiếp theo.  |
+| expires_at         | string          |    Thời gian hết hạn của refresh token   |
+| is_verified         | boolean          |    <ul><li>`True`: OA được verify</li><li> `False`: OA chưa được verify</li></ul>   |
+| name         | string          |   Tên OA   |
+| oa_id         | string          |    ID của OA   |
+| onwer_id         | string          |    ID của chủ shop trên hệ thống eTelecom   |
+| remaining_monthly_promotion_quota         | number          |    Số tin ZNS hậu mãi còn lại OA được gửi trong tháng.   |
 | remaining_quota         | number          |    Mô tả remaining_quota   |
-| shop_id         | string          |    Mô tả shop_id   |
-| status         | Z          |    Mô tả status   |
-| updated_at         | string          |    Mô tả updated_at   |
+| shop_id         | string          |    ID của shop trên hệ thống eTelecom   |
+| status         | Z          |    Trạng thái <ul><li>**P** : Đang kết nối </li><li>**N** : Ngắt kết nối </li></ul>   |
+| current_quality         | string          |    Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA. <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>   |
+| last_week_quality         | string          |    Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA. Các giá trị trả về: <ul><li>`HIGH` : Mức độ chất lượng tốt </li><li>`MEDIUM` : Mức độ chất lượng trung bình</li><li>`LOW` : Mức độ chất lượng kém </li><li>`UNDEFINED` : Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá) </li></ul>   |
+| daily_quota         | number          |    Số thông báo ZNS OA được gửi trong 1 ngày.   |
+| remaining_quota         | number          |    Số thông báo ZNS OA được gửi trong ngày còn lại.   |
+| daily_quota_promotion         | number          |   Số tin ZNS hậu mãi OA được gửi trong ngày. Ghi chú: Từ ngày 1/11, thuộc tính này sẽ trả về giá trị null   |
+| monthly_promotion_quota         | string          |    Ngày cập nhật   |
+| updated_at         | string          |    Ngày cập nhật   |
 | webhook_url         | string          |    Mô tả webhook_url   |
 
 ### Bảng Status Response

@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Create Journey
 
-## Api Create Journey lên zalo
+## Api Create Journey  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/create-journey
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/create-journey
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -21,15 +33,19 @@ custom_edit_url: null
   - `API-KEY`: Key License
 - **Body**:
   - `oa_id`: ID của OA
-  - `phone`: Số điện thoại người nhận
+  - `phone`: Số điện thoại của người nhận.
+  
+    :::info Lưu ý
+      SĐT phải được liên kết với tài khoản Zalo
+    :::
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
-| phone `body`         | string                | false            |     Mô tả trường phone      |
+| oa_id `body`         | string                | false            |     ID của OA      |
+| phone `body`         | string                | false            |     Số điện thoại của người nhận      |
 
 - **Ví dụ Request**
 
@@ -77,18 +93,18 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type             | Description       |
 |------------- |-----------------|------------------|
+| id         | string           |    ID của journey trên hệ thống của ITS   |
+| journey_id         | string           |    ID của journey   |
+| journey_token         | string           |    Mã hành trình được kích hoạt   |
+| expired_at         | string           |    Thời gian hết hạn   |
+| phone         | string           |    Số điện thoại người nhận   |
 | charged         | boolean           |    Mô tả msg_id   |
-| created_at         | string           |    Mô tả msg_id   |
-| error_code         | number           |    Mô tả msg_id   |
-| error_message         | string           |    Mô tả msg_id   |
-| expired_at         | string           |    Mô tả msg_id   |
-| id         | string           |    Mô tả msg_id   |
-| is_charged         | boolean           |    Mô tả msg_id   |
-| journey_id         | string           |    Mô tả msg_id   |
-| journey_token         | string           |    Mô tả msg_id   |
-| phone         | string           |    Mô tả msg_id   |
-| status         | Z           |    Mô tả msg_id   |
-| updated_at         | string           |    Mô tả msg_id   |
+| created_at         | string           |    Thời gian tạo    |
+| error_code         | number           |    Mã lỗi   |
+| error_message         | string           |    Thông tin lỗi   |
+| is_charged         | boolean           |    Tính phí hay không tính phí   |
+| status         | Z           |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| updated_at         | string           |    Thời gian cập nhật   |
 
 ### Bảng Status Response
 
@@ -106,6 +122,4 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 | 502         | Bad Gateway               | Server là một gateway hoặc proxy và nhận được phản hồi không hợp lệ từ server khác. |
 | 503         | Service Unavailable       | Server không thể xử lý yêu cầu do quá tải hoặc bảo trì.                    |
 | 504         | Gateway Timeout           | Server không nhận được phản hồi kịp thời từ server phụ trợ.                |
-
-
 

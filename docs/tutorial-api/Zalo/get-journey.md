@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Get Journey
 
-## Api Get Journey lên zalo
+## Api Get Journey  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/get-journey
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/get-journey
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -20,7 +32,7 @@ custom_edit_url: null
 - **Parameters**:
   - `API-KEY`: Key License
 - **Body**:
-  - `journey_id`: (Mô tả dữ liệu journey_id)
+  - `journey_id`: ID của journey
   - `oa_id`: ID của OA
 
 - **Cấu trúc request**
@@ -28,8 +40,8 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| journey_id `body`         | string                | false            |     Mô tả trường journey_id      |
-| oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
+| journey_id `body`         | string                | false            |     ID của journey      |
+| oa_id `body`         | string                | false            |     ID của OA      |
 
 - **Ví dụ Request**
 
@@ -77,18 +89,18 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
+| id         | string          |    ID của journey trên hệ thống của ITS   |
 | charged         | boolean          |    Mô tả charged   |
-| created_at         | string          |    Mô tả created_at   |
-| error_code         | number          |    Mô tả error_code   |
-| error_message         | string          |    Mô tả error_message   |
-| expired_at         | string          |    Mô tả expired_at   |
-| id         | string          |    Mô tả id   |
-| is_charged         | boolean          |    Mô tả is_charged   |
-| journey_id         | string          |    Mô tả journey_id   |
-| journey_token         | string          |    Mô tả journey_token   |
-| phone         | string          |    Mô tả phone   |
-| status         | Z          |    Mô tả status   |
-| updated_at         | string          |    Mô tả updated_at   |
+| journey_id         | string          |    ID của journey   |
+| journey_token         | string          |   Mã hành trình được kích hoạt   |
+| created_at         | string          |    Thời gian tạo    |
+| error_code         | number          |    Mã lỗi   |
+| error_message         | string          |    Thông tin lỗi    |
+| expired_at         | string          |    Thời gian hết hạn   |
+| is_charged         | boolean          |    Tính phí hay không tính phí   |
+| phone         | string          |    Số điện thoại người nhận   |
+| status         | Z          |    Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul>   |
+| updated_at         | string          |    Thời gian cập nhật   |
 
 ### Bảng Status Response
 

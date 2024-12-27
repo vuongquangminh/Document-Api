@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # List Journeys
 
-## Api List Journeys lên zalo
+## Api List Journeys  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/list-journeys
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/list-journeys
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -28,8 +40,8 @@ custom_edit_url: null
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ID của template </li><li>**date_from** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**date_to** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho ID của OA  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**oa_id** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li><li>**status** với kiểu dữ liệu là `string` đại diện cho ID của OA  </li></ul>      |
-| page `body` | object | false | <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho trang trước  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho trang sau  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho giới hạn </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho sắp xếp </li></ul> |
+| filter `body`         | object                | false            |     <ul><li>**charged** với kiểu dữ liệu là `boolean`: Tính phí hay không </li><li>**date_from** với kiểu dữ liệu là `string`: Ngày bắt đầu  </li><li>**date_to** với kiểu dữ liệu là `string`: Ngày kết thúc  </li><li>**is_charged** với kiểu dữ liệu là `boolean`: Tính phí hay không   </li><li>**journey_id** với kiểu dữ liệu là `string`: ID của journey  </li><li>**oa_id** với kiểu dữ liệu là `string`: ID của OA  </li><li>**phone** với kiểu dữ liệu là `string`: Số điện thoại người nhận </li><li>**status** với kiểu dữ liệu là `string`: Trạng thái <ul><li>`Z`:  Mới tạo</li><li>`P`: Enable</li><li>`N`: Disable</li></ul></li></ul>      |
+
 - **Ví dụ Request**
 
 ```bash
@@ -102,8 +114,7 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |------------- |-----------------|-------------------|
-| journeys         | array          |    <ul><li>**charged** với kiểu dữ liệu là `boolean` đại diện cho ngày bắt đầu  </li><li>**created_at** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**error_code** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**error_message** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**expired_at** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**id** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**is_charged** với kiểu dữ liệu là `boolean` đại diện cho loại template  </li><li>**journey_id** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**journey_token** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**phone** với kiểu dữ liệu là `string` đại diện cho loại template  </li><li>**status** với kiểu dữ liệu là `Z` đại diện cho loại template  </li><li>**updated_at** với kiểu dữ liệu là `string` đại diện cho loại template  </li></ul>   |
-| paging         | object          |    <ul><li>**after** với kiểu dữ liệu là `string` đại diện cho ngày bắt đầu  </li><li>**before** với kiểu dữ liệu là `string` đại diện cho ngày kết thúc  </li><li>**limit** với kiểu dữ liệu là `number` đại diện cho ID của OA  </li><li>**next** với kiểu dữ liệu là `string` đại diện cho ID của template </li><li>**prev** với kiểu dữ liệu là `string` đại diện cho tên của template </li><li>**sort** với kiểu dữ liệu là `string` đại diện cho loại template  </li></ul>      |
+| journeys         | array          |    <ul><li>**charged** với kiểu dữ liệu là `boolean`: Tính phí hay không   </li><li>**created_at** với kiểu dữ liệu là `string`: Thời gian tạo </li><li>**error_code** với kiểu dữ liệu là `number`: Mã lỗi  </li><li>**error_message** với kiểu dữ liệu là `string`: Thông báo lỗi </li><li>**expired_at** với kiểu dữ liệu là `string`: Thời gian hết hạn </li><li>**id** với kiểu dữ liệu là `string`: ID của journey trên hệ thống eTelecom  </li><li>**is_charged** với kiểu dữ liệu là `boolean`: Tính phí hay không</li><li>**journey_id** với kiểu dữ liệu là `string`: ID của journey </li><li>**journey_token** với kiểu dữ liệu là `string`: Mã hành trình được kích hoạt  </li><li>**phone** với kiểu dữ liệu là `string`: Số điện thoại người nhận  </li><li>**status** với kiểu dữ liệu là `Z`: loại template  </li><li>**updated_at** với kiểu dữ liệu là `string`: Thời gian cập nhật  </li></ul>   |
 
 ### Bảng Status Response
 

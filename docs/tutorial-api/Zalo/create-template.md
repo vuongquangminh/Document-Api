@@ -5,9 +5,21 @@ custom_edit_url: null
 
 # Create Template
 
-## Api Create Template lên zalo
+## Api Create Template  
 
-`POST` $BASE_URL/api/vendor/v1/zalo/create-template
+:::tip API
+  `POST` __$BASE_URL__/api/vendor/v1/zalo/create-template
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -22,16 +34,16 @@ custom_edit_url: null
 - **Body**:
   - `oa_id`: ID của OA
   - `template_id`: ID của mẫu tin
-  - `type`: (Mô tả dữ liệu type)
+  - `type`: Loại template
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| oa_id `body`         | string                | false            |     Mô tả trường oa_id      |
-| template_id `body`         | number                | false            |     Mô tả trường template_id      |
-| type `body`         | unknow                | false            |     Mô tả trường type      |
+| oa_id `body`         | string                | false            |     ID của OA oa_id      |
+| template_id `body`         | number                | false            |     ID của mẫu tin      |
+| type `body`         | unknow                | false            |     Loại template      |
 
 - **Ví dụ Request**
 
@@ -92,21 +104,21 @@ Mô tả: Mô tả dữ liệu trả về dùng làm gì
 
 | Key        | Type            | Description       |
 |-------------|-------------------|-----------------|
-| price         | number         |    Mô tả msg_id   |
-| apply_template_quota         | boolean         |    Mô tả msg_id   |
-| created_at         | boolean         |    Mô tả msg_id   |
+| price         | number         |    Đơn giá của mẫu tin   |
+| apply_template_quota         | boolean         |    <ul><li>`True`</li><li>`False`</li></ul>   |
+| created_at         | boolean         |    Thời gian tạo   |
 | preview_url         | string         |    Mô tả msg_id   |
-| template_daily_quota         | number         |    Mô tả msg_id   |
-| template_id         | number         |    Mô tả msg_id   |
-| template_name         | string         |    Mô tả msg_id   |
-| template_params         | array         |    Mô tả msg_id   |
-| template_quality         | UNKNOWN         |    Mô tả msg_id   |
-| template_remaining_quota         | number         |    Mô tả msg_id   |
-| template_status         | UNKNOWN         |    Mô tả msg_id   |
-| template_tag         | UNKNOWN         |    Mô tả msg_id   |
-| timeout         | number         |    Mô tả msg_id   |
+| template_daily_quota         | number         |    Số lượng tin ZNS có thể gửi trong 1 ngày   |
+| template_id         | number         |    ID của mẫu tin    |
+| template_name         | string         |    Tên của mẫu tin   |
+| template_params         | array         |    Danh sách các thuộc tính của mẫu tin   |
+| template_quality         | UNKNOWN         |    <ul><li>`unknown`:  Không xác định</li><li>`UNDEFINED`:  Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá)</li><li>`LOW`:  Mức độ chất lượng kém</li><li>`MEDIUM`:  Mức độ chất lượng trung bình</li><li>`HIGH`: Mức độ chất lượng cao</li></ul>   |
+| template_remaining_quota         | number         |    Số lượng tin ZNS có thể gửi còn lại trong 1 ngày   |
+| template_status         | string         |    Trạng thái mẫu tin: <ul><li>`Unkown`: Không xác định</li><li>`PENDING_REVIEW`: Đang duyệt</li><li>`DISABLE`: Bị khóa</li><li>`ENABLE`: Đã duyệt</li><li>`REJECT`: Bị từ chối</li></ul>   |
+| template_tag         | string         |    Cấp độ mẫu tin: <ul><li>`Unkown`: Không xác định</li><li>`OTP`: Tin OTP (tag 0)</li><li>`IN_TRANSACTION`: Xác nhận/Cập nhật thông tin giao dịch (Tag 1)</li><li>`POST_TRANSACTION`: Hỗ trợ dịch vụ liên quan sau giao dịch (Tag 2)</li><li>`ACCOUNT_UPDATE`:  Cập nhật thông tin tài khoản (Tag 3)</li><li>`GENERAL_UPDATE`:  Thay đổi thông tin dịch vụ (Tag 4)</li><li>`FOLLOW_UP`:  Thông báo ưu đãi đến khách hàng cũ (Tag 5)</li></ul>  |
+| timeout         | number         |    Thời gian tính phí của mẫu tin   |
 | type         | UNKNOWN         |    Mô tả msg_id   |
-| updated_at         | string         |    Mô tả msg_id   |
+| updated_at         | string         |    Thời gian cập nhật   |
 
 ### Bảng Status Response
 
