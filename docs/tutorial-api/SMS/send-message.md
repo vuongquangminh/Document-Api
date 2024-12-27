@@ -8,7 +8,19 @@ custom_edit_url: null
 
 ## Api Send Message  
 
+:::tip API
   `POST` __$BASE_URL__/api/vendor/v1/sms/send-message
+:::
+
+:::info Lưu ý 
+
+  - __API-KEY__: là duy nhất
+  - Các bước lấy __API-KEY__: 
+    1. Doanh nghiệp đăng nhập
+    2. Di chuyển đến trang Key (hoặc License)
+    3. Lấy 1 API-KEY thỏa mãn điều kiện hoạt động
+
+:::
 
 ### Thông tin Request
 
@@ -23,28 +35,28 @@ custom_edit_url: null
   - `API-KEY`: Key License
 
 - **Body**:
-  - `destinations`: (Mô tả dữ liệu destinations)
-  - `from`: (Mô tả dữ liệu from)
-  - `text`: (Mô tả dữ liệu text)
-  - `scheduled`: (Mô tả dữ liệu scheduled)
-  - `requestId`: (Mô tả dữ liệu requestId)
-  - `useUnicode`: (Mô tả dữ liệu useUnicode)
-  - `type`: (Mô tả dữ liệu type)
-  - `ext`: (Mô tả dữ liệu ext)
+  - `destinations`: Điểm nhận tin
+  - `from`: Tên Brandname dùng để gửi tin
+  - `text`: Nội dung tin
+  - `scheduled`: Gửi tin đặt lịch
+  - `requestId`: ID định danh của đối tác
+  - `useUnicode`: Gửi tin Unicode
+  - `type`: Loại gửi tin 
+  - `ext`: Trường dự phòng, có thể bỏ trống.
 
 - **Cấu trúc request**
 
 | Key          | Type Value            |     Required    | Description   |
 |------------- |-----------------------|-----------------|---------------               |
 | API-KEY `header`       | string                | true            |    Key License         |
-| destinations `body`         | array                | true            |     Mô tả trường destinations      |
-| from `body`         | string                | true            |     Mô tả trường from      |
-| text `body`         | string                | true            |     Mô tả trường text      |
-| scheduled `body`         | 	string                | false            |     Mô tả trường scheduled      |
-| requestId `body`         | string                | false            |     Mô tả trường requestId      |
-| useUnicode `body`         | string                | true            |     Mô tả trường useUnicode      |
-| type `body`         | string                | true            |     Mô tả trường type      |
-| ext `body`         | object                | false            |     Mô tả trường ext      |
+| destinations `body`         | array                | true            |     Điểm nhận tin       |
+| from `body`         | string                | true            |     Tên Brandname dùng để gửi tin      |
+| text `body`         | string                | true            |     Nội dung tin      |
+| scheduled `body`         | 	string                | false            |     Gửi tin đặt lịch      |
+| requestId `body`         | string                | false            |     ID định danh của đối tác, sẽ gửi lại trong nội dung phản hồi hoặc để trống      |
+| useUnicode `body`         | string                | true            |     <ul><li>**0**: Gửi tin notUnicode</li><li>**1**: Nội dung Unicode</li><li>**2**: Tự động chuyển đổi nội dung Unicode sang notUnicodecode</li></ul>      |
+| type `body`         | number                | true            |     <ul><li>**0**: Tư vấn</li><li>**1**: Quảng cáo</li><li>**2**: OTP</li></ul>      |
+| ext `body`         | object                | false            |     Trường dự phòng, có thể bỏ trống      |
 
 - **Ví dụ Request**
 

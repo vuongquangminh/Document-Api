@@ -11,7 +11,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.ico",
+    // favicon: "img/favicon.ico",
     organizationName: "facebook", // Usually your GitHub org/user name.
     projectName: "docusaurus", // Usually your repo name.
 
@@ -41,9 +41,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     stylesheets: ["/css/custom.css"],
 
     themeConfig:
-    
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-      
+
       ({
         navbar: {
           title: "Trang chủ",
